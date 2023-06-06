@@ -64,7 +64,7 @@ To test the tool, one of the first time frames we loaded was the period of the f
 
 
 
-![alt_text](stock-network-diagram.png "image_tooltip")
+![alt_text](/assets/images/stock-network-diagram.png "image_tooltip")
 
 
 _#1 Snapshot of the graph during the financial crisis depicting real estate shown in grey color and financials shown in pink_

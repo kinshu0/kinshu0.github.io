@@ -9,6 +9,9 @@ Democratizing public surveillance for a fair, just, and equitable dystopia
 
 Check out [Athena]
 
+Architecture for Athena
+![alt_text](/assets/images/architecture.png "image_tooltip")
+
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
