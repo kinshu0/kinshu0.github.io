@@ -21,4 +21,4 @@ Democratizing public surveillance for a fair, just, and equitable dystopia
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
-[athena]: http://ec2-54-175-189-69.compute-1.amazonaws.com/
+[http://athena.kinshug.com/]: http://athena.kinshug.com/
