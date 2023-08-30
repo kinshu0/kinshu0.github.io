@@ -7,9 +7,9 @@ categories: jekyll update
 
 Check out [http://athena.kinshug.com/]
 
-<object data="../assets/athena_pitch_deck.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="../assets/athena_pitch_deck.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../assets/athena_pitch_deck.pdf">Download PDF</a>.</p>
+<object data="../../../../../assets/athena_pitch_deck.pdf" type="application/pdf" width="1000px" height="700px">
+    <embed src="../../../../../../assets/athena_pitch_deck.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../../../../../../assets/athena_pitch_deck.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
