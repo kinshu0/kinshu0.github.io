@@ -5,11 +5,11 @@ date:   2023-08-29 21:19:54 -0400
 categories: jekyll update
 ---
 
-Check out [http://athena.kinshug.com/]
+Tap into insights for brick and mortar
 
-<object data="../../../../../assets/athena_pitch_deck.pdf" type="application/pdf" width="1000px" height="700px">
-    <embed src="../../../../../../assets/athena_pitch_deck.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../../../../../../assets/athena_pitch_deck.pdf">Download PDF</a>.</p>
+<object data="/assets/athena_pitch_deck.pdf" type="application/pdf" width="1000px" height="700px">
+    <embed src="/assets/athena_pitch_deck.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/athena_pitch_deck.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 

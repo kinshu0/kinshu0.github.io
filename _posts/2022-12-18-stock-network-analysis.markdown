@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "stock network analysis"
-date:   2022-12-18 08:20:52 -0400
+date:   2020-11-17 08:20:52 -0400
 categories: jekyll update
+excerpt: "A tool to perform a network analysis of different stocks and visualize their mesh topology. This project revolved around the intuition that a network map of different stocks could reveal previously unanticipated market movements of groups of stocks defined outside of conventionally used classifications such as sectors and industries"
 ---
 
 # Stock Correlation Network Topology Analysis
