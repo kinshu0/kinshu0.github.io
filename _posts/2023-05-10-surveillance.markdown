@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "1984 type surveillance"
+title:  "1984 surveillance"
 date:   2023-05-10 21:19:54 -0400
 categories: jekyll update
 ---

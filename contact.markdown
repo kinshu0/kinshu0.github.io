@@ -4,8 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-<object data="/assets/resume.pdf" type="application/pdf" width="100%">
-    <embed src="/assets/resume.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/resume.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+kinshu.gupta at quinnipiac.edu
