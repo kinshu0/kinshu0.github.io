@@ -1,13 +1,11 @@
 ---
 layout: post
-title:  "pose estimation for physical therapy"
+title:  "Pose Estimation for Physical Therapy"
 date:   2024-10-16 02:50:00 -0400
 categories: jekyll update
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s2pflHL8NqQ?si=gSnZ0o2-H4scAHP2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
 [Link to DevPost](https://devpost.com/software/ez-pt)
 
 ### Inspiration

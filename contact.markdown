@@ -5,3 +5,5 @@ permalink: /contact/
 ---
 
 kinshu.gupta at quinnipiac.edu
+
+[resume](/resume.pdf)
