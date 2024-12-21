@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #cacaca;
+}
+
+body {
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body div {
+    padding: 2em;
+    height: 80%;
+    margin: auto;  /* This will center the div vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+canvas {
+    background-color: white;
+}
+
+button {
+    align-self: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    font-size: 1.5rem;
+}
