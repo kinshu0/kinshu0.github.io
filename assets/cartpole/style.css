@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #cacaca;
+}
+
+body {
+    display: flex;
+}
+
+body #wrapper {
+    padding: 2em;
+    height: 80%;
+    margin: auto;  /* This will center the div vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+body #info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid black;
+}
+
+button {
+    align-self: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    font-size: 1.5rem;
+}
