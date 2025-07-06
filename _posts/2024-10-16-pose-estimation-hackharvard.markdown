@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pose Estimation for Physical Therapy"
-date:   2024-10-16 02:50:00 -0400
+date:   2025-01-02 02:50:00 -0400
 categories: jekyll update
 ---
 
