@@ -5,9 +5,8 @@ date:   2025-07-06 18:35:00 -0400
 categories: jekyll update
 ---
 
-<img src="/assets/images/prosperity-island.png" alt="island of spacepirate" width="560"/>
-
-# Prosperity 3 Challenge
+<img src="/assets/prosperity/media/prosperity-island-lowres.jpg" alt="island of spacepirate" width="560"/><br>
+[Link to Github](https://github.com/kinshu0/prosperity-3)
 
 ## Overview
 
@@ -17,8 +16,8 @@ The Prosperity 3 challenge consisted of 15 days of algorithmic trading, divided 
 
 Given the significant time constraints, our approach prioritized leveraging proven implementations from previous challenges rather than building everything from scratch. We drew inspiration and adapted code from several repositories, which we gratefully acknowledge:
 
-- https://github.com/jmerle/imc-prosperity-3-backtester
-- https://github.com/ericcccsliu/imc-prosperity-2/
+- [jmerle/imc-prosperity-3-backtester](https://github.com/jmerle/imc-prosperity-3-backtester)
+- [ericcccsliu/imc-prosperity-2](https://github.com/ericcccsliu/imc-prosperity-2)
 
 ## Round 1: Building Core Trading Infrastructure
 
@@ -32,7 +31,7 @@ Our market taking approach centered on identifying and executing profitable orde
 
 For example, analyzing the RAINFOREST_RESIN price distribution revealed a mean-reverting behavior with prices clustering around 10,000 seashells:
 
-![Rainforest Resin Price Distribution](media/image.png)
+![Rainforest Resin Price Distribution](/assets/prosperity/media/image.png)
 
 Consider this sample order book:
 
@@ -75,7 +74,7 @@ We observed that certain price levels showed significantly higher volumes, sugge
 #### Kelp Trading
 Kelp exhibited random walk characteristics, leading us to implement a mean reversion strategy based on rolling statistics. We maintained a rolling window of historical prices and traded when prices exceeded certain z-score thresholds. Parameters (window size and z-score thresholds) were optimized through grid search backtesting to maximize PnL.
 
-![Kelp Price Pattern](media/image-1.png)
+![Kelp Price Pattern](/assets/prosperity/media/image-1.png)
 
 #### Ink Trading Challenges
 Ink proved the most challenging product due to high volatility and sudden price movements. Despite positive backtesting results using a similar approach to Kelp, live trading performance in Round 1 was disappointing. We subsequently discovered that Ink prices contained embedded signals in the trading history that other teams successfully exploited – a feature we incorporated once we received identified trader data in Round 5.
@@ -107,7 +106,7 @@ We identified the opportunity to construct synthetic baskets using the individua
 2. **Identifying mispricings**: When actual basket price deviated from synthetic price
 3. **Executing arbitrage**: Buying underpriced baskets while selling components (or vice versa)
 
-![Basket Spread Analysis](media/image-2.png)
+![Basket Spread Analysis](/assets/prosperity/media/image-2.png)
 
 ### Exploring Complex Synthetic Instruments
 
@@ -159,9 +158,9 @@ Round 3 introduced options trading with a focus on implied volatility analysis. 
 
 We began by plotting the implied volatility surface across different strike prices and maturities, revealing the characteristic volatility smile pattern:
 
-![Volatility Smile Curve](media/image-3.png)
+![Volatility Smile Curve](/assets/prosperity/media/image-3.png)
 
-![Fitted Volatility Surface](media/image-5.png)
+![Fitted Volatility Surface](/assets/prosperity/media/image-5.png)
 
 Our analysis revealed systematic mispricings in the options market, particularly for near-the-money options where we had the most confidence in our volatility estimates.
 
@@ -175,7 +174,7 @@ We developed a systematic approach to identify and trade volatility mispricings:
    - Long options when market IV < expected IV (underpriced volatility)
    - Short options when market IV > expected IV (overpriced volatility)
 
-![Expected vs Actual Implied Volatility](media/image-6.png)
+![Expected vs Actual Implied Volatility](/assets/prosperity/media/image-6.png)
 
 ### Implementation Challenges
 
