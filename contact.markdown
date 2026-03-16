@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-kinshu.gupta at quinnipiac.edu
+kinshugupta2002 at gmail.com
