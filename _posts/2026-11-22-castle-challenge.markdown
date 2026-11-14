@@ -48,7 +48,13 @@ The organisers draw 1,000,000 random groups of four from the field, and your sco
 
 Every allocation loses to some other allocation. Put 48 on castle 4 and someone with 49 takes it from you and spends the difference elsewhere. So there is no best allocation in general, only a best allocation against the entries that were actually submitted.
 
-Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. The real problem is to find out what mix of levels the field is playing. I tried to model that mix, and then found a way to measure it.
+Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. Stated precisely, the field is an empirical distribution $$P$$ over the 4.6 million ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it:
+
+$$
+a^{\ast} = \arg\max_{a} \; \mathbb{E}_{b \sim P} \left[ u(a, b) \right]
+$$
+
+where $$u(a, b)$$ is what allocation $$a$$ earns against $$b$$. The difficulty is that $$P$$ is not published. The leaderboard shows one number per entry, its score, and nothing about its allocation. So this is an inference problem: estimate $$P$$, or the parts of it that the score depends on, from what the leaderboard reveals. I first tried to fit $$P$$ as a whole. Then I found that Head to Head depends on $$P$$ only through five one-dimensional distributions, and that those can be measured directly.
 
 ## Approach 1: a fitted model of the field
 
@@ -60,21 +66,25 @@ Many different fields produce the same distribution of scores, and the model had
 
 ## Approach 2: measuring the field
 
-Head to Head scores add up castle by castle. For an allocation a:
+Head to Head scores add up castle by castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
-```
-score(a) = 1·F1(a1) + 2·F2(a2) + 3·F3(a3) + 4·F4(a4) + 5·F5(a5)
-```
+$$
+S(a) = \sum_{c=1}^{5} c \, F_c(a_c), \qquad F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
+$$
 
-where `Fc(x)` is the share of the field that x soldiers beat on castle c, counting ties as half. Nothing about one castle affects another. So an entry that puts soldiers on a single castle reads off one value of one `F`, straight from its published score.
+so $$F_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half. The score depends on the field only through the five functions $$F_1, \dots, F_5$$, and nothing about one castle affects another. An entry that puts soldiers on a single castle therefore reads off one value of one $$F_c$$, straight from its published score.
 
 One example. I submitted 59-0-0-41-0, and on the final board it scored 4.468.
 
-- Castle 1, with 59 soldiers, is a near-certain win: 1 point.
-- Castles 2, 3 and 5, with zero soldiers, tie against everyone else who sent zero there. Five entries that put all 100 soldiers on one castle had already measured those shares (13.8%, 12.0% and 14.3%), which gives 0.675 points.
-- What is left belongs to castle 4: 4.468 − 1 − 0.675 = 2.793 points, out of 4.
+- Castle 1, with 59 soldiers, is a near-certain win: $$F_1(59) \approx 1$$, so 1 point.
+- Castles 2, 3 and 5, with zero soldiers, tie against everyone else who sent zero there. Write $$z_c = \Pr[X_c = 0]$$, so that $$F_c(0) = z_c / 2$$. Five entries that put all 100 soldiers on one castle had already measured these: $$z_2 = 13.8\%$$, $$z_3 = 12.0\%$$, $$z_5 = 14.3\%$$.
+- What is left belongs to castle 4.
 
-So 41 soldiers on castle 4 beat 2.793 / 4 = 70% of the field on that board (71% when I first measured it).
+$$
+4 \, F_4(41) = 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.675 = 2.793
+$$
+
+So $$F_4(41) = 2.793 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when I first measured it).
 
 About eighty entries of this kind, submitted over a day, mapped all five castles. Each dot below is one of them. Set an allocation and the page computes its score from those measurements alone.
 
@@ -89,7 +99,13 @@ I had 42 other entries on the board whose value on every castle had been measure
 <div id="castle-known" class="castle-known"></div>
 </details>
 
-The constant gap of 0.113 is an error in my probe design that I only found while writing this up. Each probe parks its spare soldiers on castle 1, and I assumed that leg always wins its 1 point. It does not quite: a small share of the field sends even more to castle 1. Each of the four other castles was therefore measured slightly low, and the four shortfalls add up to the gap. Because it is the same for every allocation, it never changed which allocation looked best.
+The constant gap of 0.113 is an error in my probe design that I only found while writing this up. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed that leg always wins its 1 point, $$F_1(100 - x) = 1$$. It does not quite: a small share of the field sends even more to castle 1. Each measured value is therefore low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
+
+$$
+S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
+$$
+
+which is about 0.03 per castle. Within the family of allocations that matter it is close to the same for every one, so it never changed which allocation looked best.
 
 ## Search
 
