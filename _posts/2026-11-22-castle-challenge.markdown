@@ -4,8 +4,8 @@ title: "First in Sequoia's Castle Challenge: results and method"
 date: 2026-11-22 14:00:00 -0500
 permalink: /castle-challenge/
 description: "First in both games of Sequoia's No Limit Castle Challenge, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
-thumb:
-image:
+thumb: /assets/castle/four-way-rank-1.png
+image: /assets/castle/four-way-rank-1.png
 ---
 
 I finished first in both games of Sequoia's No Limit Castle Challenge, a strategy puzzle with about six thousand entries, run in November 2026.
@@ -14,6 +14,12 @@ I finished first in both games of Sequoia's No Limit Castle Challenge, a strateg
 |---|---|---|
 | Head to Head | 4-5-36-48-7 | 1st on all 105 |
 | Four-Way | 3-41-54-1-1 | 1st on 31 of 105, more than any other entry |
+
+<figure>
+<img src="/assets/castle/head-to-head-rank-1.png" alt="Leaderboard card: number 1 in Head to Head, Kinshu Gupta, 9.32" width="1200" height="675">
+<img src="/assets/castle/four-way-rank-1.png" alt="Leaderboard card: number 1 in Four-Way Battle, Kinshu Gupta, 5.92" width="1200" height="675">
+<figcaption>The cards the site generated for my entry on 7 November, the night of the deadline.</figcaption>
+</figure>
 
 The leaderboard was recomputed about every half hour. These are the 105 versions published in the 45 hours after my entry appeared, which was the last update before the Boston deadline.
 
