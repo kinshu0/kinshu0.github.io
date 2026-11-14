@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "First in Sequoia's Castle Challenge: results and method"
+title: "First in the OpenAI, Citadel Securities and Sequoia Castle Challenge"
 date: 2026-11-22 14:00:00 -0500
 permalink: /castle-challenge/
-description: "First in both games of Sequoia's No Limit Castle Challenge, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
+description: "First in both games of the No Limit Castle Challenge, hosted by OpenAI, Citadel Securities and Sequoia, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
 thumb: /assets/castle/four-way-rank-1.png
 image: /assets/castle/four-way-rank-1.png
 ---
 
-I finished first in both games of Sequoia's No Limit Castle Challenge, a strategy puzzle with about six thousand entries, run in November 2026.
+I finished first in both games of the No Limit Castle Challenge, a strategy puzzle hosted by OpenAI, Citadel Securities and Sequoia in November 2026, with about six thousand entries.
 
 | Game | My allocation | Leaderboards after my entry landed |
 |---|---|---|
