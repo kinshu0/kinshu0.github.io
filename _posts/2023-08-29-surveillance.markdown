@@ -2,7 +2,11 @@
 layout: post
 title:  "Athena Surveillance Analytics Pitch"
 date:   2023-08-29 21:19:54 -0400
-categories: jekyll update
+permalink: /athena-pitch/
+redirect_from: /jekyll/update/2023/08/30/surveillance.html
+description: "Tap into insights for brick and mortar."
+thumb: /assets/thumbs/athena.png
+image: /assets/images/architecture.png
 ---
 
 Tap into insights for brick and mortar

@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+## Writing
+{% for post in site.posts %}{% unless post.unlisted %}
+- [{{ post.title }}]({{ post.url | absolute_url }}) ({{ post.date | date: "%Y-%m-%d" }}){% if post.description %}: {{ post.description }}{% endif %}{% endunless %}{% endfor %}
+
+## Games
+{% for game in site.data.games %}{% if game.listed %}
+- [{{ game.name }}]({{ game.url }}): {{ game.description }}{% endif %}{% endfor %}
+
+## About
+
+- [About and contact]({{ '/about/' | absolute_url }})

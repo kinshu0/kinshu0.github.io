@@ -2,7 +2,10 @@
 layout: post
 title:  "1984 surveillance"
 date:   2023-05-10 21:19:54 -0400
-categories: jekyll update
+permalink: /1984-surveillance/
+redirect_from: /jekyll/update/2023/05/11/surveillance.html
+description: "Democratizing public surveillance for a fair, just, and equitable dystopia."
+image: /assets/images/architecture.png
 ---
 
 Democratizing public surveillance for a fair, just, and equitable dystopia

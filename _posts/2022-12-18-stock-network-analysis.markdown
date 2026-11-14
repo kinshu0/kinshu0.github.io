@@ -2,7 +2,11 @@
 layout: post
 title:  "stock network analysis"
 date:   2020-11-17 08:20:52 -0400
-categories: jekyll update
+permalink: /stock-network-analysis/
+redirect_from: /jekyll/update/2020/11/17/stock-network-analysis.html
+description: "A network map of stocks that shows groups moving together outside the usual sectors and industries."
+thumb: /assets/thumbs/stock.png
+image: /assets/images/stock-network-diagram.png
 excerpt: "A tool to perform a network analysis of different stocks and visualize their mesh topology. This project revolved around the intuition that a network map of different stocks could reveal previously unanticipated market movements of groups of stocks defined outside of conventionally used classifications such as sectors and industries"
 ---
 

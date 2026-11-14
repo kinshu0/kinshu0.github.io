@@ -1,0 +1,16 @@
+# Games shown on /games/. Set listed: false to hide one without deleting it.
+
+- name: Market Maker
+  url: https://kinshu.co/games/mm/
+  listed: true
+  description: >-
+    A multiplayer card game for a group of friends. Everyone holds secret cards
+    and takes turns quoting a price on the total; the others race to trade
+    against it.
+
+- name: Edge
+  url: https://kinshu.co/games/edge/
+  listed: false   # hidden until the rework is done
+  description: >-
+    Quick estimation questions where every answer is a bet, with a daily set of
+    ten that is the same for everyone.

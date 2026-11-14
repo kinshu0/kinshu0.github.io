@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<p class="intro">{{ site.description }}</p>
+
+<p class="label">Writing</p>
+{% for post in site.posts %}{% unless post.unlisted %}
+<div class="entry">
+  <div class="txt">
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+    <span class="meta">{{ post.date | date: "%b %Y" }}</span>
+  </div>
+  {% if post.thumb %}<a href="{{ post.url | relative_url }}"><img src="{{ post.thumb | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+</div>
+{% endunless %}{% endfor %}

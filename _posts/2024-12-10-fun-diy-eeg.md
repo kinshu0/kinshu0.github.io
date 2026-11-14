@@ -2,7 +2,11 @@
 layout: post
 title:  "Fun DIY EEG (draft)"
 date:   2024-12-10 03:14:32 -0400
-categories: jekyll update
+permalink: /diy-eeg/
+redirect_from: /jekyll/update/2024/12/10/fun-diy-eeg.html
+description: "Doing some brain hacking with a DIY neuroscience kit."
+thumb: /assets/thumbs/eeg.jpg
+image: /assets/eeg/upsidedown.jpg
 excerpt: Doing some brain hacking
 ---
 

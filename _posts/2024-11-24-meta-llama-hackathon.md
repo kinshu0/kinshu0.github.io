@@ -2,7 +2,11 @@
 layout: post
 title:  "Trading Zoo: Meta Llama Hackathon (draft)"
 date:   2024-11-24 18:12:32 -0400
-categories: jekyll update
+permalink: /trading-zoo/
+redirect_from: /jekyll/update/2024/11/24/meta-llama-hackathon.html
+description: "A playful market simulation game."
+thumb: /assets/thumbs/zoo.png
+image: /assets/images/image.png
 ---
 
 #### A Playful Market Simulation Game

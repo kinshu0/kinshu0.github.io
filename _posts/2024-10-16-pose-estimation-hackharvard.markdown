@@ -2,7 +2,11 @@
 layout: post
 title:  "Pose Estimation for Physical Therapy"
 date:   2025-01-04 02:50:00 -0400
-categories: jekyll update
+permalink: /pose-estimation/
+redirect_from: /jekyll/update/2025/01/04/pose-estimation-hackharvard.html
+description: "A HackHarvard project: guided physical therapy at home using pose estimation."
+thumb: /assets/thumbs/pose.jpg
+image: /assets/thumbs/pose.jpg
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s2pflHL8NqQ?si=gSnZ0o2-H4scAHP2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

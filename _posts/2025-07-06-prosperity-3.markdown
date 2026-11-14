@@ -2,7 +2,11 @@
 layout: post
 title:  "Prosperity Trading Challenge"
 date:   2025-07-06 18:35:00 -0400
-categories: jekyll update
+permalink: /prosperity-3/
+redirect_from: /jekyll/update/2025/07/06/prosperity-3.html
+description: "11th in the US and 37th worldwide out of 12,680+ teams in IMC's algorithmic trading contest. What we built, round by round."
+thumb: /assets/thumbs/prosperity.jpg
+image: /assets/prosperity/media/prosperity-island-lowres.jpg
 ---
 
 <img src="/assets/prosperity/media/prosperity-island-lowres.jpg" alt="island of spacepirate" width="560"/><br>

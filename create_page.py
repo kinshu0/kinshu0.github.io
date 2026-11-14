@@ -1,47 +1,32 @@
-import os
-import sys
+"""Create a new post: `uv run python create_page.py`"""
 from pathlib import Path
 import datetime
 
 posts_dir = Path('_posts')
 
 
-"""
-Sample template example;
----
-layout: post
-title:  "stock network analysis"
-date:   2022-12-18 08:20:52 -0400
-categories: jekyll update
----
-
-"""
-
 def create_page(title):
-    # Get the current datetime
-    date_created = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S %z')
+    now = datetime.datetime.now().astimezone()
+    slug = title.lower().replace(' ', '-')
+    new_file = posts_dir / f'{now:%Y-%m-%d}-{slug}.markdown'
 
-    new_file = posts_dir / f'{date_created[:10]}-{title}.markdown'
-    new_file.touch()
-
-    # Write the template to the file
+    # description: one sentence, used on the homepage, in search results and link previews
+    # thumb: small picture for the homepage list (optional)
+    # image: large picture for link previews on X, iMessage, Slack (optional)
     template = f"""---
 layout: post
-title:  "{title}"
-date:   {date_created}
-categories: jekyll update
+title: "{title}"
+date: {now:%Y-%m-%d %H:%M:%S %z}
+description: ""
+thumb:
+image:
 ---
 
 """
-
     new_file.write_text(template)
-
+    return new_file
 
 
 if __name__ == '__main__':
-    print('Creating a new page...')
-    print('Enter the title of the page: ')
-    title = input()
-    title = title.replace(' ', '-')
-    create_page(title)
-    print('Done!')
+    title = input('Title of the post: ').strip()
+    print('Created', create_page(title))
