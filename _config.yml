@@ -12,6 +12,9 @@ baseurl: ""
 x_username: spacepiratexz
 github_username: kinshu0
 linkedin_username: kinshu-gupta
+
+# Photo beside the bio on the homepage. Remove this line to show no photo.
+avatar: /assets/images/me.jpg
 contact_email: kinshugupta2002 at gmail.com
 
 # Google Analytics measurement ID (starts with G-). Leave empty for no tracking.

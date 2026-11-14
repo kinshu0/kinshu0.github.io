@@ -43,7 +43,9 @@ h4 { font-size: 1em; margin: 1.6em 0 .2em; }
 article > .meta { margin: 0 0 2em; }
 
 /* homepage: links row and publications */
-.intro + .links { margin-top: -1.6em; }
+.hero { display: flex; gap: 1.6em; align-items: flex-start; margin: 0 0 1.1em; }
+.hero .intro { margin: 0; flex: 1; }
+.avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: none; margin-top: .2em; }
 .links { font: 14px/1.6 var(--sans); margin: 0 0 2.6em; }
 .links a { margin-right: 1.1em; }
 .label { scroll-margin-top: 1em; }
@@ -87,5 +89,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
   body { font-size: 17px; }
   header { flex-wrap: wrap; row-gap: .5em; column-gap: 1em; }
   header nav { gap: 1em; }
+  .hero { flex-direction: column-reverse; gap: 1.1em; }
+  .avatar { width: 80px; height: 80px; margin: 0; }
   .entry img { width: 96px; height: 72px; }
 }

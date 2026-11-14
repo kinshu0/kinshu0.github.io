@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-<p class="intro">{{ site.description }}</p>
+<div class="hero">
+  <p class="intro">{{ site.description }}</p>
+  {% if site.avatar %}<img class="avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.title }}" width="104" height="104">{% endif %}
+</div>
 <p class="links">
   <a href="{{ '/about/' | relative_url }}">Email</a>
   <a href="https://github.com/{{ site.github_username }}">GitHub</a>
