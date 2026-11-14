@@ -1,7 +1,10 @@
 # Not reloaded by `jekyll serve`; restart the server after editing.
 
 title: Kinshu Gupta
-description: I do machine learning research, build trading bots, and lead the payments platform at Trivelta.
+description: >-
+  I study machine learning and markets by building things and competing. My research so far is in
+  explainable ML and causal inference, I placed in the top 0.3% of IMC's Prosperity trading challenge,
+  and I lead payments engineering at Trivelta.
 author: Kinshu Gupta
 url: "https://kinshu.co"
 baseurl: ""
