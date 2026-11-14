@@ -20,7 +20,7 @@ Some resources I looked into:
 - [upside down labs](https://upsidedownlabs.tech/) - The kit that I personally got, much cheaper and ready to go since I already had an Arduino, just had to solder some header pins and a socket for the electrodes. [link for US and CA shipping](https://www.mouser.ca/manufacturer/upside-down-labs/).
 
 <div style="text-align: center;">
-    <img src="/assets/eeg/upsidedown.jpg" alt="upside down" style="max-width: 100%; height: auto; margin: 1.5rem;">
+    <img src="/assets/eeg/upsidedown.jpg" alt="upside down" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
     <p style="font-size: 16px; color: #555;">Just solder the header pins and the electrodes sockets and it's good to go</p>
 </div>
 
