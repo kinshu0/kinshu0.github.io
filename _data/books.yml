@@ -1,0 +1,56 @@
+# Books shown on the About page, in order. colour is used for the spine on the shelf.
+
+- title: Remembrance of Earth's Past
+  author: Cixin Liu
+  detail: "The Three-Body Problem, The Dark Forest, Death's End"
+  colour: "#1f2a44"
+  note: >-
+    My favourite books. As a kid I decided the end goal of everything was travelling to distant
+    galaxies, and this trilogy is the closest I've come to going.
+
+- title: "Surely You're Joking, Mr. Feynman!"
+  author: Richard Feynman
+  colour: "#b4451f"
+  note: >-
+    How I'd like to learn: casually, out of plain curiosity, and happy to ask the naive question.
+
+- title: The Mental Game of Poker
+  author: Jared Tendler
+  colour: "#2f6b4f"
+  note: >-
+    Not about the maths. It's about how boredom, fear and tilt wreck your judgement, and it described
+    my years of track and cross country better than any running book did. Its inchworm idea stuck with
+    me: you get better by pulling your worst play forward, not by polishing your best.
+
+- title: Grit
+  author: Angela Duckworth
+  colour: "#c9952b"
+  note: >-
+    Changed how I set goals: pick a direction on purpose, then keep working toward it.
+
+- title: The Big Short
+  author: Michael Lewis
+  colour: "#3d3d3d"
+  note: >-
+    The clearest account I've read of how mortgage-backed securities worked, and how they failed.
+
+- title: Piranesi
+  author: Susanna Clarke
+  colour: "#6b8aa6"
+  note: >-
+    A puzzle of a book. I liked not knowing what the world was until the end.
+
+- title: "Frieren: Beyond Journey's End"
+  author: Kanehito Yamada and Tsukasa Abe
+  colour: "#8a7bb8"
+  note: >-
+    Manga. The magic has rules, a history and people who study it like a science. I'd want to be a
+    mage there.
+
+- title: Attack on Titan
+  author: Hajime Isayama
+  colour: "#7a3b2e"
+  note: >-
+    Manga. Ruthless world-building, and an idea I can't shake: everyone is right from where they
+    stand, so you have to fight for yourself. One character's sheer will carries the whole story,
+    which I find inspiring and frightening in equal parts.
