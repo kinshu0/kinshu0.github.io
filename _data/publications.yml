@@ -24,7 +24,9 @@
     - label: poster
       url: /files/xai-presentation.pdf
 
-- title: "On Learning and Development in Mathematics: Leveraging a Decade of Longitudinal Cohort Research to Identify and Characterize Psychoeducational Characteristics Specific to Mathematics"
+# Full title on the slides: "On Learning and Development in Mathematics: Leveraging a Decade of Longitudinal
+# Cohort Research to Identify and Characterize Psychoeducational Characteristics Specific to Mathematics"
+- title: "On Learning and Development in Mathematics"
   authors: "Brian Darrow, Jr., Luke Brown, <strong>Kinshu Gupta</strong>"
   venue: "Talk, NES/MAA Fall Conference, Boston, 2023"
   description: >-
