@@ -50,6 +50,8 @@ article > .meta { margin: 0 0 2em; }
 .pub { padding: 1.1em 0; border-top: 1px solid var(--line); }
 .pub .pt { font-weight: 700; line-height: 1.3; }
 .pub .pa { font-size: .88em; color: var(--dim); }
+.pub .pa a { text-decoration-color: var(--line); }
+.pub .pa a:hover { color: var(--fg); text-decoration-color: var(--acc); }
 .pub .pv { font-size: .88em; font-style: italic; }
 .pub p { margin: .35em 0; font-size: .88em; line-height: 1.5; color: var(--dim); }
 .pub .pl a { font: 13px/1.4 var(--sans); margin-right: 1em; }
