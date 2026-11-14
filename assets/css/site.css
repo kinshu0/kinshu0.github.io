@@ -62,10 +62,13 @@ article > .meta { margin: 0 0 2em; }
 /* About: photo and book list */
 /* pulled up so its top lines up with the page title */
 .about-photo { float: right; margin: -54px 0 1em 1.5em; }
-.shelf { display: none; }
-.book { margin-top: 1.1em; }
+/* books as a stack lying flat: each title on a coloured bar, the note underneath */
+.book { margin-top: 1.5em; }
+.book .bt { background: var(--c); color: #fff; padding: .5em .9em .55em; border-radius: 3px; line-height: 1.35; font-size: .95em; box-shadow: inset 0 -5px 0 rgba(0,0,0,.16); }
 .book .bd { font-style: italic; }
-.book .bn { margin: .15em 0 0; font-size: .9em; line-height: 1.5; color: var(--dim); }
+.book .bn { margin: .5em 0 0; padding-left: .9em; font-size: .9em; line-height: 1.5; color: var(--dim); }
+.book:nth-child(1) .bt { width: 100%; } .book:nth-child(2) .bt { width: 84%; } .book:nth-child(3) .bt { width: 78%; } .book:nth-child(4) .bt { width: 66%; }
+.book:nth-child(5) .bt { width: 58%; } .book:nth-child(6) .bt { width: 52%; } .book:nth-child(7) .bt { width: 46%; } .book:nth-child(8) .bt { width: 56%; }
 
 /* post list */
 .entry { display: flex; gap: 1.4em; align-items: flex-start; padding: 1.3em 0; border-top: 1px solid var(--line); }
@@ -100,5 +103,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
   .hero { flex-direction: column-reverse; gap: 1.1em; }
   .avatar { width: 80px; height: 80px; margin: 0; }
   .about-photo { margin: -50px 0 .6em 1em; }
+  .book .bt { width: auto !important; }
   .entry img { width: 96px; height: 72px; }
 }

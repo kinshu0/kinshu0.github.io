@@ -18,9 +18,12 @@ Placed top 0.3% globally at IMC Prosperity Trading Challenge out of 10,000+ team
 
 Away from work I boulder, run and ski.
 
+<h2 id="contact">Contact</h2>
+
+Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0), and here is my [resume](/files/resume.pdf).
+
 ## Books
 
-<div class="shelf" aria-hidden="true">{% for book in site.data.books %}<span style="--c: {{ book.colour }}">{{ book.title }}</span>{% endfor %}</div>
 <div class="books">
 {% for book in site.data.books %}
 <div class="book" style="--c: {{ book.colour }}">
@@ -29,9 +32,3 @@ Away from work I boulder, run and ski.
 </div>
 {% endfor %}
 </div>
-
-[Resume](/files/resume.pdf)
-
-<h2 id="contact">Contact</h2>
-
-Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0).
