@@ -10,7 +10,13 @@
 
 - name: Edge
   url: https://kinshu.co/games/edge/
-  listed: false   # hidden until the rework is done
+  listed: true
   description: >-
     Quick estimation questions where every answer is a bet, with a daily set of
     ten that is the same for everyone.
+
+- name: bandit
+  url: https://kinshu.co/games/bandit/
+  listed: false
+  description: >-
+    A steal finder and trainer for the bananagrams-tiles steal game.

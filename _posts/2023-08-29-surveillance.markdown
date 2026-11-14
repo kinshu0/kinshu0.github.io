@@ -11,9 +11,9 @@ image: /assets/images/architecture.png
 
 Tap into insights for brick and mortar
 
-<object data="/assets/athena_pitch_deck.pdf" type="application/pdf" width="100%" height="700px">
-    <embed src="/assets/athena_pitch_deck.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/athena_pitch_deck.pdf">Download PDF</a>.</p>
+<object data="/files/athena-pitch-deck.pdf" type="application/pdf" width="100%" height="700px">
+    <embed src="/files/athena-pitch-deck.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/files/athena-pitch-deck.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
