@@ -99,5 +99,6 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
   header nav { gap: 1em; }
   .hero { flex-direction: column-reverse; gap: 1.1em; }
   .avatar { width: 80px; height: 80px; margin: 0; }
+  .about-photo { margin: -50px 0 .6em 1em; }
   .entry img { width: 96px; height: 72px; }
 }
