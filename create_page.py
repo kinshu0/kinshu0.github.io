@@ -13,6 +13,7 @@ def create_page(title):
     # description: one sentence, used on the homepage, in search results and link previews
     # thumb: small picture for the homepage list (optional)
     # image: large picture for link previews on X, iMessage, Slack (optional)
+    # math: set to true if the post uses $$ ... $$ formulas
     template = f"""---
 layout: post
 title: "{title}"
@@ -20,6 +21,7 @@ date: {now:%Y-%m-%d %H:%M:%S %z}
 description: ""
 thumb:
 image:
+math: false
 ---
 
 """

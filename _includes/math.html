@@ -1,0 +1,12 @@
+{% comment %}
+Math rendering, loaded only on pages that set `math: true` in their front matter.
+Write math in kramdown's syntax: $$ ... $$ inside a paragraph for inline math, and on its own
+block (blank line before and after) for a displayed formula. kramdown turns those into
+\( ... \) and \[ ... \], which KaTeX renders here.
+{% endcomment %}
+{% if page.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false});"></script>
+{% endif %}

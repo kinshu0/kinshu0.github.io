@@ -42,6 +42,10 @@ h4 { font-size: 1em; margin: 1.6em 0 .2em; }
 .intro { font-size: 1.25em; line-height: 1.45; margin: 0 0 2.6em; }
 article > .meta { margin: 0 0 2em; }
 
+/* math (KaTeX): a long displayed formula scrolls sideways inside itself, not the page */
+.katex { font-size: 1.05em; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .3em 0; margin: 1.2em 0; }
+
 /* homepage: links row and publications */
 .hero { display: flex; gap: 1.6em; align-items: flex-start; margin: 0 0 1.1em; }
 .hero .intro { margin: 0; flex: 1; }
