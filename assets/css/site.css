@@ -67,8 +67,9 @@ article > .meta { margin: 0 0 2em; }
 .book .bt { background: var(--c); color: #fff; padding: .5em .9em .55em; border-radius: 3px; line-height: 1.35; font-size: .95em; box-shadow: inset 0 -5px 0 rgba(0,0,0,.16); }
 .book .bd { font-style: italic; }
 .book .bn { margin: .5em 0 0; padding-left: .9em; font-size: .9em; line-height: 1.5; color: var(--dim); }
-.book:nth-child(1) .bt { width: 100%; } .book:nth-child(2) .bt { width: 84%; } .book:nth-child(3) .bt { width: 78%; } .book:nth-child(4) .bt { width: 66%; }
-.book:nth-child(5) .bt { width: 58%; } .book:nth-child(6) .bt { width: 52%; } .book:nth-child(7) .bt { width: 46%; } .book:nth-child(8) .bt { width: 56%; }
+/* uneven lengths, so the stack looks piled up and not sorted */
+.book:nth-child(1) .bt { width: 100%; } .book:nth-child(2) .bt { width: 72%; } .book:nth-child(3) .bt { width: 88%; } .book:nth-child(4) .bt { width: 60%; }
+.book:nth-child(5) .bt { width: 80%; } .book:nth-child(6) .bt { width: 52%; } .book:nth-child(7) .bt { width: 68%; } .book:nth-child(8) .bt { width: 58%; }
 
 /* post list */
 .entry { display: flex; gap: 1.4em; align-items: flex-start; padding: 1.3em 0; border-top: 1px solid var(--line); }

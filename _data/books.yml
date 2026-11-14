@@ -1,4 +1,4 @@
-# Books shown on the About page, in order. colour is used for the spine on the shelf.
+# Books shown on the About page, in order. colour is the bar behind the title; chosen for how the stack looks, not from the covers.
 
 - title: Remembrance of Earth's Past
   author: Cixin Liu
@@ -10,7 +10,7 @@
 
 - title: "Frieren: Beyond Journey's End"
   author: Kanehito Yamada and Tsukasa Abe
-  colour: "#8a7bb8"
+  colour: "#c9952b"
   note: >-
     Manga. The magic has rules, a history and people who study it like a science. I'd want to be a
     mage there.
@@ -31,7 +31,7 @@
 
 - title: Attack on Titan
   author: Hajime Isayama
-  colour: "#7a3b2e"
+  colour: "#3d3d3d"
   note: >-
     Manga. Nobody in it is simply right, and one person's sheer will carries the whole story.
 
@@ -43,12 +43,12 @@
 
 - title: Grit
   author: Angela Duckworth
-  colour: "#c9952b"
+  colour: "#8a7bb8"
   note: >-
     Changed how I set goals: pick a direction on purpose, then keep working toward it.
 
 - title: The Big Short
   author: Michael Lewis
-  colour: "#3d3d3d"
+  colour: "#7a3b2e"
   note: >-
     The clearest account I've read of how mortgage-backed securities worked, and how they failed.
