@@ -23,14 +23,26 @@ I finished first in both games of the No Limit Castle Challenge, a strategy puzz
 
 The leaderboard was recomputed about every half hour. These are the 105 versions published in the 45 hours after my entry appeared, which was the last update before the Boston deadline.
 
-Two caveats. In Head to Head, first place was shared: on the deadline board with one other entry, which was one of my own measurement entries (explained below), and later with five people who copied the allocation. Four-Way is scored by random sampling, so the same entries change order every time the board is recomputed. A handful of entries sat within that noise at the top. Mine was third on the first board, first more often than any other entry (the next best had 29), and never lower than tenth.
+Two caveats. In Head to Head, first place was shared: on the deadline board with one other entry, which was one of my own measurement entries (explained below), and later with five people who copied the allocation. Four-Way is scored on randomly drawn groups, so the same entries change order every time the board is recomputed. A handful of entries sat within that noise at the top. Mine was third on the first board, first more often than any other entry (the next best had 29), and never lower than tenth.
 
 ## The challenge
 
 You have 100 soldiers to split across five castles worth 1, 2, 3, 4 and 5 points. Everyone submits one allocation for each of two games.
 
-- **Head to Head.** Your allocation plays every other entry once. Each castle goes to whoever sent more soldiers, and a tie splits the points. Your score is your average points per opponent, out of 15.
-- **Four-Way.** You are grouped with three other entries, and each castle goes to the single highest sender of the four. The organisers score this by sampling random groups.
+**Head to Head.** Your allocation plays every other entry once. Each castle goes to whoever sent more soldiers, and a tie splits the points. Your score is your average points per opponent, out of 15.
+
+**Four-Way.** Your allocation is dropped into a group with three other entries. Each castle goes to the one entry of the four that sent the most soldiers there. The four are then ranked by castle points, and the rank is what pays: 9 for first, 4 for second, 2 for third, 0 for last, with ties splitting.
+
+Here is one group, with my entry in it:
+
+| Entry | Castles won | Castle points | Place | Payout |
+|---|---|---|---|---|
+| 30-0-0-0-70 | 1 and 5 | 6 | 1st | 9 |
+| 3-41-54-1-1 (mine) | 2 and 3 | 5 | 2nd | 4 |
+| 4-5-36-48-7 | 4 | 4 | 3rd | 2 |
+| 20-20-20-20-20 | none | 0 | 4th | 0 |
+
+The organisers draw 1,000,000 random groups of four from the field, and your score is your average payout, out of 9.
 
 ## Why there is no optimal answer
 
@@ -87,7 +99,7 @@ From there I searched on the leaderboard itself. Head to Head scores are exact, 
 
 ## Four-Way
 
-Four-Way has no such shortcut. A castle goes to the highest of four senders, so the score does not split into one term per castle, and single-castle entries measure nothing useful.
+Four-Way has no such shortcut. The payout depends on your place in the group, which depends on all five castles and all three opponents at once. The score does not split into one term per castle, and single-castle entries measure nothing useful.
 
 I used the same neighbour search, with one change. Because the organisers score Four-Way by sampling, the same entry moves by about 0.02 from one board to the next, which is more than the difference between good neighbours. So I compared entries by their average over many boards. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997. That is a plateau, not a peak, and which entry is first on any one board is a draw among the entries on it.
 
