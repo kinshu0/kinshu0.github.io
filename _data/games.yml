@@ -15,8 +15,10 @@
     Quick estimation questions where every answer is a bet, with a daily set of
     ten that is the same for everyone.
 
-- name: bandit
+- name: Bandit
   url: https://kinshu.co/games/bandit/
-  listed: false
+  listed: true
   description: >-
-    A steal finder and trainer for the bananagrams-tiles steal game.
+    A steal finder and trainer for the word-stealing game played with
+    Bananagrams tiles. Type a word to see every steal, or drill them against
+    the clock.
