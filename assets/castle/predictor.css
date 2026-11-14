@@ -1,0 +1,31 @@
+/* Castle Challenge post: score predictor. Uses the site's colour tokens. */
+.castle-predictor { border: 1px solid var(--line); border-radius: 3px; padding: 1em 1.1em; margin: 1.6em 0; font: 15px/1.5 var(--sans); }
+.cp-presets { display: flex; flex-wrap: wrap; gap: .5em; margin-bottom: 1em; }
+.cp-presets button { font: 14px/1.2 var(--sans); padding: .45em .7em; border: 1px solid var(--line); border-radius: 3px; background: none; color: inherit; cursor: pointer; }
+.cp-presets button:hover { border-color: var(--acc); color: var(--acc); }
+.cp-presets button:focus-visible, .cp-ctl input:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+.cp-rows { display: flex; flex-direction: column; gap: .7em; }
+.cp-row { display: grid; grid-template-columns: minmax(0, 1fr) 220px; column-gap: 1.2em; align-items: center; }
+.cp-ctl { display: grid; grid-template-columns: 4.6em minmax(0, 1fr) 2.2em; gap: .6em; align-items: center; }
+.cp-ctl input { width: 100%; min-width: 0; accent-color: var(--acc); }
+.cp-num { font-variant-numeric: tabular-nums; text-align: right; }
+.cp-read { grid-column: 1 / -1; color: var(--dim); font-size: 13px; font-variant-numeric: tabular-nums; }
+.cp-row svg { display: block; max-width: 100%; height: auto; }
+.cp-axis { stroke: var(--dim); stroke-width: 1; }
+.cp-grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 3; }
+.cp-line { fill: none; stroke: var(--fg); stroke-width: 1.5; stroke-linejoin: round; }
+.cp-pt { fill: var(--fg); }
+.cp-dot { fill: var(--acc); stroke: var(--bg); stroke-width: 2; }
+.cp-out { margin-top: 1.1em; padding-top: .9em; border-top: 1px solid var(--line); }
+.cp-out p { margin: .25em 0; }
+.cp-line-out { display: grid; grid-template-columns: 11.5em 4em minmax(0, 1fr); column-gap: .8em; align-items: baseline; }
+.cp-v { font: 600 16px/1.4 var(--mono); font-variant-numeric: tabular-nums; }
+.cp-n, .cp-warn { color: var(--dim); font-size: 13px; }
+.castle-known { max-height: 22em; overflow: auto; }
+.castle-known td, .castle-known th { white-space: nowrap; }
+details > summary { cursor: pointer; font: 15px/1.5 var(--sans); }
+@media (max-width: 560px) {
+  .cp-row { grid-template-columns: minmax(0, 1fr); row-gap: .3em; }
+  .cp-line-out { grid-template-columns: minmax(0, 1fr) auto; }
+  .cp-n { grid-column: 1 / -1; }
+}
