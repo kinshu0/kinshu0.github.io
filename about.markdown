@@ -16,6 +16,33 @@ Placed top 0.3% globally at IMC Prosperity Trading Challenge out of 10,000+ team
 
 Away from work I boulder, run and ski.
 
+## Books
+
+<div class="books" markdown="1">
+
+**Remembrance of Earth's Past**, Cixin Liu (*The Three-Body Problem*, *The Dark Forest*, *Death's End*)
+: My favourite books. As a kid I decided the end goal of everything was travelling to distant galaxies, and this trilogy is the closest I've come to going.
+
+**Surely You're Joking, Mr. Feynman!**, Richard Feynman
+: How I'd like to learn: casually, out of plain curiosity, and happy to ask the naive question.
+
+**The Mental Game of Poker**, Jared Tendler
+: Not about the maths. It's about how boredom, fear and tilt wreck your judgement, and it described my years of track and cross country better than any running book did. You get better by fixing your worst play, not by polishing your best.
+
+**Grit**, Angela Duckworth
+: Changed how I set goals: pick a direction on purpose, then keep working toward it.
+
+**The Big Short**, Michael Lewis
+: The clearest account I've read of how mortgage-backed securities worked, and how they failed.
+
+**Piranesi**, Susanna Clarke
+: A puzzle of a book. I liked not knowing what the world was until the end.
+
+**Frieren: Beyond Journey's End**, Kanehito Yamada and Tsukasa Abe
+: Manga. The magic has rules, a history and people who study it like a science. I'd want to be a mage there.
+
+</div>
+
 [Resume](/files/resume.pdf)
 
 <h2 id="contact">Contact</h2>
