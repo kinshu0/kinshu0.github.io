@@ -1,0 +1,28 @@
+# Shown under Research on the homepage, newest first.
+# authors is optional; add it as a single string, e.g. "A. Author, K. Gupta, B. Author".
+
+- title: "What, Then, Is Critical Thinking? Insights from a Longitudinal Study of Critical Thinking"
+  venue: Duke University Press, 2025
+  description: >-
+    A longitudinal multi-cohort study of 25,000+ students, building predictive causal models of how
+    psychoeducational variables affect quantitative aptitude and rhetorical competency.
+  links:
+    - label: paper
+      url: https://doi.org/10.5325/jasseinsteffe.15.1-2.0019
+
+- title: Explaining Pretrained Deep Neural Network MRI Cancer Classification Outcomes
+  venue: ASEE Northeast Section Conference, 2024
+  description: >-
+    Input-gradient visualisation for a fine-tuned VGG-16, compared against perturbation, class
+    activation and saliency-map methods for explaining computer vision models.
+  links:
+    - label: slides
+      url: /files/xai-presentation.pdf
+
+- title: Longitudinal Analysis of Psychoeducational Factors in Student Math Achievement
+  venue: Mathematical Association of America Fall Conference, 2023
+  description: >-
+    Using longitudinal cohort data to analyse psychoeducational characteristics, with a focus on mathematics.
+  links:
+    - label: slides
+      url: /files/longitudinal-study.pdf

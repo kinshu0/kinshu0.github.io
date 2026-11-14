@@ -2,8 +2,26 @@
 layout: default
 ---
 <p class="intro">{{ site.description }}</p>
+<p class="links">
+  <a href="{{ '/about/' | relative_url }}">Email</a>
+  <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+  <a href="https://x.com/{{ site.x_username }}">X</a>
+  <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/">LinkedIn</a>
+  <a href="{{ '/files/resume.pdf' | relative_url }}">CV</a>
+</p>
 
-<p class="label">Writing</p>
+<p class="label" id="research">Research</p>
+{% for pub in site.data.publications %}
+<div class="pub">
+  <div class="pt">{{ pub.title }}</div>
+  {% if pub.authors %}<div class="pa">{{ pub.authors }}</div>{% endif %}
+  <div class="pv">{{ pub.venue }}</div>
+  {% if pub.description %}<p>{{ pub.description }}</p>{% endif %}
+  <div class="pl">{% for link in pub.links %}<a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% endfor %}</div>
+</div>
+{% endfor %}
+
+<p class="label" id="writing">Writing</p>
 {% for post in site.posts %}{% unless post.unlisted %}
 <div class="entry">
   <div class="txt">

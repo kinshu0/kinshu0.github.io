@@ -1,7 +1,7 @@
 # Not reloaded by `jekyll serve`; restart the server after editing.
 
 title: Kinshu Gupta
-description: I build trading bots, games and small ML experiments, and write up how they work.
+description: I do machine learning research, build trading bots, and lead the payments platform at Trivelta.
 author: Kinshu Gupta
 url: "https://kinshu.co"
 baseurl: ""
@@ -9,6 +9,7 @@ baseurl: ""
 # Shown in the footer and at the end of every post.
 x_username: spacepiratexz
 github_username: kinshu0
+linkedin_username: kinshu-gupta
 contact_email: kinshugupta2002 at gmail.com
 
 # Google Analytics measurement ID (starts with G-). Leave empty for no tracking.

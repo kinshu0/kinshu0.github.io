@@ -16,12 +16,6 @@ Placed top 0.3% globally at IMC Prosperity Trading Challenge out of 10,000+ team
 
 [Resume](/files/resume.pdf)
 
-## Papers and talks
-
-- [Explaining deep neural network outcomes for prostate cancer MRI classification](/files/xai-presentation.pdf): slides, 2024 ASEE Northeast Conference.
-- [Psychoeducational variables affecting student competencies](/files/longitudinal-study.pdf): co-authored longitudinal study, presented at the MAA conference.
-- [Athena surveillance analytics](/files/athena-pitch-deck.pdf): pitch deck.
-
-## Contact
+<h2 id="contact">Contact</h2>
 
 Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0).
