@@ -16,7 +16,6 @@ layout: default
   <div class="pt">{{ pub.title }}</div>
   {% if pub.authors %}<div class="pa">{{ pub.authors }}</div>{% endif %}
   <div class="pv">{{ pub.venue }}</div>
-  {% if pub.description %}<p>{{ pub.description }}</p>{% endif %}
   <div class="pl">{% for link in pub.links %}<a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% endfor %}</div>
 </div>
 {% endfor %}

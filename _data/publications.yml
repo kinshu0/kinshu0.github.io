@@ -1,5 +1,6 @@
 # Shown under Research on the homepage, newest first.
 # authors is optional and may contain <strong> to mark your own name.
+# description is kept here but not shown on the homepage (compact list); llms.txt does not use it either.
 # Details were checked against the DOI record and the PDFs in files/ on 2026-11-14.
 
 - title: "What, Then, Is Critical Thinking? Insights from a Longitudinal Study of Critical Thinking"
@@ -26,7 +27,8 @@
 
 # Full title on the slides: "On Learning and Development in Mathematics: Leveraging a Decade of Longitudinal
 # Cohort Research to Identify and Characterize Psychoeducational Characteristics Specific to Mathematics"
-- title: "On Learning and Development in Mathematics"
+# The title below is the one used on LinkedIn (his preference, 2026-11-14).
+- title: "Longitudinal Analysis of Psychoeducational Factors in Student Math Achievement"
   authors: "Brian Darrow, Jr., Luke Brown, <strong>Kinshu Gupta</strong>"
   venue: "Talk, NES/MAA Fall Conference, Boston, 2023"
   description: >-
