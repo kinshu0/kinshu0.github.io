@@ -1,28 +1,35 @@
 # Shown under Research on the homepage, newest first.
-# authors is optional; add it as a single string, e.g. "A. Author, K. Gupta, B. Author".
+# authors is optional and may contain <strong> to mark your own name.
+# Details were checked against the DOI record and the PDFs in files/ on 2026-11-14.
 
 - title: "What, Then, Is Critical Thinking? Insights from a Longitudinal Study of Critical Thinking"
-  venue: Duke University Press, 2025
+  authors: "Michael Ben-Avie, Brian Darrow, Luke Brown, <strong>Kinshu Gupta</strong>, J. T. Torres"
+  venue: "Journal of Assessment and Institutional Effectiveness, 15(1–2), 19–66, 2025"
   description: >-
-    A longitudinal multi-cohort study of 25,000+ students, building predictive causal models of how
-    psychoeducational variables affect quantitative aptitude and rhetorical competency.
+    A longitudinal, mixed-methods study of how undergraduates' critical thinking develops. Papers from
+    the same students, scored by outside faculty, are linked to psychological survey data to find which
+    psychoeducational variables come before strong and improving performance.
   links:
     - label: paper
       url: https://doi.org/10.5325/jasseinsteffe.15.1-2.0019
 
 - title: Explaining Pretrained Deep Neural Network MRI Cancer Classification Outcomes
-  venue: ASEE Northeast Section Conference, 2024
+  authors: "<strong>Kinshu Gupta</strong>"
+  venue: "Poster, ASEE Northeast Section Conference, 2024"
   description: >-
-    Input-gradient visualisation for a fine-tuned VGG-16, compared against perturbation, class
-    activation and saliency-map methods for explaining computer vision models.
+    Uses input gradients to show which regions of a prostate MRI lesion drive a pretrained VGG-16's
+    malignancy prediction, on the ProstateX dataset, as a check that the model attends to clinically
+    relevant features.
   links:
-    - label: slides
+    - label: poster
       url: /files/xai-presentation.pdf
 
-- title: Longitudinal Analysis of Psychoeducational Factors in Student Math Achievement
-  venue: Mathematical Association of America Fall Conference, 2023
+- title: "On Learning and Development in Mathematics: Leveraging a Decade of Longitudinal Cohort Research to Identify and Characterize Psychoeducational Characteristics Specific to Mathematics"
+  authors: "Brian Darrow, Jr., Luke Brown, <strong>Kinshu Gupta</strong>"
+  venue: "Talk, NES/MAA Fall Conference, Boston, 2023"
   description: >-
-    Using longitudinal cohort data to analyse psychoeducational characteristics, with a focus on mathematics.
+    Draws on a decade of longitudinal cohort data from more than 17,000 college students to identify the
+    psychoeducational characteristics that matter specifically for mathematics.
   links:
     - label: slides
       url: /files/longitudinal-study.pdf

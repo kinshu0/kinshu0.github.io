@@ -9,7 +9,7 @@ sitemap: false
 
 ## Research
 {% for pub in site.data.publications %}
-- {{ pub.title }}. {{ pub.venue }}.{% for link in pub.links %} [{{ link.label }}]({{ link.url | absolute_url }}){% endfor %}{% endfor %}
+- {{ pub.title }}.{% if pub.authors %} {{ pub.authors | strip_html }}.{% endif %} {{ pub.venue }}.{% for link in pub.links %} [{{ link.label }}]({{ link.url | absolute_url }}){% endfor %}{% endfor %}
 
 ## Writing
 {% for post in site.posts %}{% unless post.unlisted %}
