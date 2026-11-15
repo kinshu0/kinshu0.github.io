@@ -150,13 +150,13 @@ I had no data on how people play, so I guessed. About 60,000 candidate allocatio
 
 The link between the hidden allocations and the visible scores is this: the leaderboard is the field playing itself. If the model's crowd is right, then playing it against itself must reproduce the real leaderboard's scores, the measured zero shares, and the score of every probe. The weights are adjusted in a loop until it does. One pass has four steps, and the loop runs 300 passes.
 
-**1. Score the crowd against itself.** The current weights give the crowd's five marginals: for each castle, the share of weight on each number of soldiers. From those come $$F_1, \dots, F_5$$, and with them the score each particle would get against the crowd:
+**1. Score the crowd against itself.** The current weights give the crowd's five marginals: for each castle, the share of weight on each number of soldiers. From those come $$F_1, \dots, F_5$$, and with them a score for every particle. $$s_i$$ is the Head to Head score particle $$i$$ would get if it were entered against this crowd:
 
 $$
 s_i = \sum_{c=1}^{5} c \cdot F_c(b_{i,c})
 $$
 
-where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$.
+where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$. There is one score per particle, 60,000 in all, just as the real leaderboard has one score per entry. Together they are the model's version of the leaderboard.
 
 **2. Match the score distribution.** Sort scores into bins 0.05 wide. Let $$h(B)$$ be the share of real leaderboard scores in bin $$B$$, and $$m(B)$$ the total weight of the particles whose score falls in it. Each particle is rescaled by how far its bin is off:
 
