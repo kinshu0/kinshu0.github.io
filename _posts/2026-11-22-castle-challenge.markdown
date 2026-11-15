@@ -158,13 +158,7 @@ Each dot below is one of them. Set an allocation and the page computes its score
 <div id="castle-known" class="castle-known"></div>
 </details>
 
-The constant 0.109 is an error in the probe design, found while writing this up. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
-
-$$
-S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
-$$
-
-which is about 0.03 per castle. It is nearly the same for every allocation near the top, so it did not change which looked best.
+The gap is nearly the same for every entry, so it did not change which allocation looked best. Its cause is an error found after the contest, described at the end.
 
 ## Search
 
@@ -191,8 +185,17 @@ A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 1
 ## Errors
 
 - **Two days on a human-shaped prior.** Ten single-castle entries on day one would have told me more.
-- **The castle 1 assumption** above. A few entries split between castles 1 and 2 only would have measured it.
 - **Misreading the Four-Way rule** until the last night: I assumed each castle was decided pairwise within the group. A batch of entries built on that reading moved the scores in a way only the real rule allows.
+
+## Found afterwards
+
+One more error turned up only while writing this report: the constant gap of 0.109 in the check. It comes from the probe design. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
+
+$$
+S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
+$$
+
+which is about 0.03 per castle. A few entries split between castles 1 and 2 only would have measured it.
 
 I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
