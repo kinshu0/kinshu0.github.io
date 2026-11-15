@@ -32,9 +32,58 @@ This is a Colonel Blotto game. You have 100 soldiers to split across five castle
 
 **Head to Head.** Your allocation plays every other entry once. Each castle goes to whoever sent more soldiers, and a tie splits the points. Your score is your average points per opponent, out of 15.
 
-**Four-Way.** Your allocation is grouped with three other entries. Each castle goes to the one entry of the four that sent the most soldiers there. The four are ranked by castle points and paid by rank: 9, 4, 2 and 0, with ties splitting.
+**Four-Way.** Your allocation is grouped with three other entries. Each castle goes to the one entry of the four that sent the most soldiers there. The four are ranked by castle points and paid by place, with ties splitting:
+
+| Place in the group | 1st | 2nd | 3rd | 4th |
+|---|---|---|---|---|
+| Payout | 9 | 4 | 2 | 0 |
 
 The organisers draw 1,000,000 random groups of four from the field, and your score is your average payout, out of 9.
+
+<figure class="fw-fig">
+<svg viewBox="0 0 662 196" role="img" aria-label="Three example groups of four entries, ranked by castle points and paid 9, 4, 2 and 0" style="width:100%;height:auto;font:13px var(--sans)">
+<text x="148" y="16" text-anchor="middle" fill="var(--dim)">1st place</text>
+<text x="148" y="34" text-anchor="middle" fill="var(--fg)" font-weight="600">pays 9</text>
+<text x="262" y="16" text-anchor="middle" fill="var(--dim)">2nd place</text>
+<text x="262" y="34" text-anchor="middle" fill="var(--fg)" font-weight="600">pays 4</text>
+<text x="376" y="16" text-anchor="middle" fill="var(--dim)">3rd place</text>
+<text x="376" y="34" text-anchor="middle" fill="var(--fg)" font-weight="600">pays 2</text>
+<text x="490" y="16" text-anchor="middle" fill="var(--dim)">4th place</text>
+<text x="490" y="34" text-anchor="middle" fill="var(--fg)" font-weight="600">pays 0</text>
+<text x="560" y="34" fill="var(--dim)">my payout</text>
+<text x="0" y="68" fill="var(--dim)">Group 1</text>
+<rect x="96" y="46" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="148" y="68" text-anchor="middle" fill="var(--fg)">6 points</text>
+<rect x="210" y="46" width="104" height="34" rx="3" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="262" y="68" text-anchor="middle" fill="var(--bg)">5 points</text>
+<rect x="324" y="46" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="376" y="68" text-anchor="middle" fill="var(--fg)">4 points</text>
+<rect x="438" y="46" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="490" y="68" text-anchor="middle" fill="var(--fg)">0 points</text>
+<text x="560" y="68" fill="var(--fg)" font-weight="600">4</text>
+<text x="0" y="116" fill="var(--dim)">Group 2</text>
+<rect x="96" y="94" width="104" height="34" rx="3" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="148" y="116" text-anchor="middle" fill="var(--bg)">7 points</text>
+<rect x="210" y="94" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="262" y="116" text-anchor="middle" fill="var(--fg)">5 points</text>
+<rect x="324" y="94" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="376" y="116" text-anchor="middle" fill="var(--fg)">3 points</text>
+<rect x="438" y="94" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="490" y="116" text-anchor="middle" fill="var(--fg)">0 points</text>
+<text x="560" y="116" fill="var(--fg)" font-weight="600">9</text>
+<text x="0" y="164" fill="var(--dim)">Group 3</text>
+<rect x="96" y="142" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="148" y="164" text-anchor="middle" fill="var(--fg)">6 points</text>
+<rect x="210" y="142" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="262" y="164" text-anchor="middle" fill="var(--fg)">5 points</text>
+<rect x="324" y="142" width="104" height="34" rx="3" fill="none" stroke="var(--line)"/>
+<text x="376" y="164" text-anchor="middle" fill="var(--fg)">3 points</text>
+<rect x="438" y="142" width="104" height="34" rx="3" fill="var(--acc)" stroke="var(--acc)"/>
+<text x="490" y="164" text-anchor="middle" fill="var(--bg)">1 point</text>
+<text x="560" y="164" fill="var(--fg)" font-weight="600">0</text>
+</svg>
+<figcaption>Three of the 1,000,000 random groups. Each box is one entry, placed by its castle points in that group; mine is filled. My score is the average of my payouts.</figcaption>
+</figure>
 
 ## Why there is no optimal answer
 
