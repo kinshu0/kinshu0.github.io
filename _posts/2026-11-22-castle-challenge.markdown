@@ -94,7 +94,12 @@ That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still
 To fill that gap I fitted a model of $$P$$.
 
 - **Prior.** I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles, and each starts with equal weight.
-- **Fit.** The weights were adjusted until the weighted crowd reproduced the evidence: the published distribution of all scores, the zero shares from the all-in probes, and the exact score of every other probe. Many weightings do that. The fit kept the one closest to the starting weights, a maximum-entropy fit, so wherever the evidence was silent the prior decided.
+- **Fit.** The weights were adjusted until the weighted crowd reproduced the evidence:
+  - the published distribution of all scores,
+  - the zero shares from the all-in probes,
+  - the exact score of every other probe.
+
+  Many weightings do that. The fit kept the one closest to the starting weights, a maximum-entropy fit, so wherever the evidence was silent the prior decided.
 - **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Refitting on resampled data gives a range for each prediction.
 
 Before trusting it I tested it on an entry it had not seen: 20 soldiers on every castle. The model predicted 7.8, with a range of 7.7 to 8.5. It scored 6.13.
