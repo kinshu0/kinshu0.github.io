@@ -68,7 +68,7 @@ $$
 
 The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
-Start with the five entries that put all 100 soldiers on one castle. The one on castle 5 scored 5.610. It wins castle 5 against everyone, for 5 points, and on each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$:
+Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. It wins castle 5 against everyone, for 5 points, and on each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$:
 
 $$
 5.610 = 5 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
