@@ -218,7 +218,7 @@ From there I searched on the leaderboard, one round per update. A round works li
 3. On the next update, compare each neighbour's score with the base's score on the same board. Head to Head scores are exact, so the difference is exactly what that one move is worth.
 4. If a neighbour beats the base, it becomes the new base. The losses matter too: a move that costs a lot marks a direction to leave alone, and one that costs almost nothing is worth trying again in combination.
 
-Because the score is separable, each difference says two things at once: what the last soldier is worth on the castle it left, and what one more is worth on the castle it joined. Two bases were enough.
+Because the score is separable, each difference says two things at once: what the last soldier is worth on the castle it left, and what one more is worth on the castle it joined.
 
 <figure class="search-fig" style="overflow-x:auto">
 <svg viewBox="0 0 660 651" role="img" aria-label="For each of the two base entries, the change in score from moving soldiers between castles" style="width:100%;min-width:560px;height:auto;font:12.5px var(--sans)">
