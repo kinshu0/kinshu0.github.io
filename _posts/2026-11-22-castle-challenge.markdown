@@ -68,10 +68,26 @@ $$
 
 The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
-Example: 59-0-0-41-0 scored 4.468 on the final board.
+Start with the five entries that put all 100 soldiers on one castle. The one on castle 5 scored 5.610. It wins castle 5 against everyone, for 5 points, and on each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$:
+
+$$
+5.610 = 5 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
+$$
+
+Five entries give five such equations in five unknowns:
+
+| All 100 on | Score | Share of the field sending zero there |
+|---|---|---|
+| Castle 1 | 1.919 | $$z_1 = 9.7\%$$ |
+| Castle 2 | 2.829 | $$z_2 = 13.8\%$$ |
+| Castle 3 | 3.788 | $$z_3 = 12.0\%$$ |
+| Castle 4 | 4.723 | $$z_4 = 12.2\%$$ |
+| Castle 5 | 5.610 | $$z_5 = 14.3\%$$ |
+
+The other values need one more kind of entry: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
 - Castle 1, with 59 soldiers, wins: $$F_1(59) \approx 1$$, so 1 point.
-- Castles 2, 3 and 5, with zero soldiers, tie with every entry that also sent zero. With $$z_c = \Pr[X_c = 0]$$, $$F_c(0) = z_c / 2$$. Five entries with all 100 soldiers on one castle measured these: $$z_2 = 13.8\%$$, $$z_3 = 12.0\%$$, $$z_5 = 14.3\%$$.
+- Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
 - The rest belongs to castle 4.
 
 $$
