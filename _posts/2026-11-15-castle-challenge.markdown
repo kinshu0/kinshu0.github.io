@@ -121,7 +121,7 @@ Each probe is an equation about the field, not a direct reading of it. To solve 
 
 ### The prior
 
-The model is a crowd of 300,000 particles: allocations drawn uniformly at random from all the possible ones. Particle $$i$$ has an allocation $$b_i = (b_{i,1}, \dots, b_{i,5})$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
+The model is a crowd of about 290,000 particles: allocations drawn uniformly at random from all the possible ones. Particle $$i$$ has an allocation $$b_i = (b_{i,1}, \dots, b_{i,5})$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
 
 A uniform draw assumes nothing about how people play. My first prior did: round-number splits and a few shapes a person might plausibly choose. It predicted badly. An entry of 20 soldiers on every castle was predicted to score 7.8 and scored 6.13. I then compared eight priors on three known entries held out of the fit. The uniform one was off by 0.11, and the seven human-shaped ones by 0.33 to 0.60. The less the prior assumed, the better it predicted.
 
@@ -132,7 +132,7 @@ The link between the hidden allocations and the visible scores is this: the lead
 <figure class="loop-fig" style="overflow-x:auto">
 <svg viewBox="0 0 680 232" role="img" aria-label="The four steps of the fitting loop in a row, with an arrow returning from the last step to the first" style="width:100%;min-width:560px;height:auto;font:13px var(--sans)">
 <defs><marker id="loop-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--fg)"/></marker></defs>
-<text x="1" y="18" font-weight="600" font-size="14" fill="var(--fg)">The crowd: 300,000 particles, each with a weight</text>
+<text x="1" y="18" font-weight="600" font-size="14" fill="var(--fg)">The crowd: 290,000 particles, each with a weight</text>
 <rect x="1" y="36" width="150" height="112" rx="4" fill="none" stroke="var(--dim)" stroke-width="1"/>
 <text x="13" y="60" font-weight="700" font-size="15" fill="var(--acc)">1</text>
 <text x="29" y="60" font-weight="600" font-size="13.5" fill="var(--fg)">Score the crowd</text>
@@ -171,7 +171,7 @@ $$
 s_i = \sum_{c=1}^{5} c \cdot F_c(b_{i,c})
 $$
 
-where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$. There is one score per particle, 300,000 in all, just as the real leaderboard has one score per entry. Together they are the model's version of the leaderboard.
+where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$. There is one score per particle, about 290,000 in all, just as the real leaderboard has one score per entry. Together they are the model's version of the leaderboard.
 
 **2. Match the score distribution.** Sort scores into bins 0.05 wide. Let $$h(B)$$ be the share of real leaderboard scores in bin $$B$$, and $$m(B)$$ the total weight of the particles whose score falls in it. Each particle is rescaled by how far its bin is off:
 
@@ -245,7 +245,7 @@ All eight are within 0.009. My final entry repeats an allocation the fit already
 
 ## Search
 
-Fitted with every probe, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th.
+Fitted with the probes I had by then, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th.
 
 From there I searched on the leaderboard, one round per update. A round works like this:
 
@@ -369,7 +369,7 @@ I was not the only one measuring. About 240 of the 6,038 Head to Head entries on
 
 <figure>
 <img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia" width="810" height="103">
-<figcaption>Two entries on the Head to Head leaderboard, 5 November. Both were in the top hundred until the organisers removed them.</figcaption>
+<figcaption>Two entries on the Head to Head leaderboard, 5 November. Both ranked between 73rd and 106th until the organisers removed them.</figcaption>
 </figure>
 
 That raised a question I kept returning to: a score never proves an allocation, so an entry labelled as a measurement could be built to mislead anyone who trusted it, which is why only my own entries counted as evidence.
