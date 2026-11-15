@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "1st place in the OpenAI × Citadel Securities × Sequoia Castle Challenge"
-date: 2026-11-22 14:00:00 -0500
+date: 2026-11-15 12:00:00 -0500
 permalink: /castle-challenge/
 math: true
 description: "First in both games of the No Limit Castle Challenge, hosted by OpenAI, Citadel Securities and Sequoia, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
