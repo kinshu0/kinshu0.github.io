@@ -257,7 +257,23 @@ The fitted field gives the five marginals. With those, the separable formula sco
 
 Fitted with every probe, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th. Interpolating between the measured points without the model gave a weaker candidate, 6-7-36-46-5, which scored 9.216.
 
-From there I searched on the leaderboard. Head to Head scores are exact, so submitting an entry's neighbours (one soldier moved between two castles) and reading their scores on the next update gives the slope in each direction. Three hours and forty entries later, 4-6-36-47-7 was tied for first with one other entry, which had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
+From there I searched on the leaderboard, one round per update. A round works like this:
+
+1. Take the best entry so far as the base.
+2. Submit about eight neighbours of it. A neighbour is the base with one soldier moved from one castle to another.
+3. On the next update, compare each neighbour's score with the base's score on the same board. Head to Head scores are exact, so the difference is exactly what that one move is worth.
+4. If a neighbour beats the base, it becomes the new base. The losses matter too: a move that costs a lot marks a direction to leave alone, and one that costs almost nothing is worth trying again in combination.
+
+Because the score is separable, each difference says two things at once: what the last soldier is worth on the castle it left, and what one more is worth on the castle it joined. Four rounds were enough.
+
+| Round | Base | What the neighbours showed | Result |
+|---|---|---|---|
+| 1 | 4-4-36-48-8 (9.290, rank 30) | Any soldier taken off castle 4 costs, up to 0.047. Castle 1 from 4 to 3 costs 0.070. | Keep castles 1 and 4; try taking from castle 5. |
+| 2 | 4-4-36-48-8 | Castle 5 to castle 2 gains 0.020; castle 5 to castle 1 gains 0.018; every other move loses. | New base 4-5-36-48-7, rank 14. |
+| 3 | 4-5-36-48-7 | Every single move tried costs, from 0.001 to 0.043. | A local optimum; try the cheapest moves in pairs and the untested ones. |
+| 4 | 4-5-36-48-7 | Castle 4 to castle 2 gains 0.003. | 4-6-36-47-7 at 9.302, tied for first. |
+
+That took three hours and forty entries. The entry it tied with had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
 
 By then the model, with the uniform prior and 123 known entries as constraints, reproduced every one of them to within 0.01 and put the best possible score at 9.316, against 9.318 on the board.
 
