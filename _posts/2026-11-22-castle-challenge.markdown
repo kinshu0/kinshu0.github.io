@@ -22,7 +22,7 @@ I finished first in both games of the No Limit Castle Challenge, a strategy puzz
 <figcaption>The cards the site generated for my entry on 7 November, the night of the deadline.</figcaption>
 </figure>
 
-The leaderboard was recomputed about every half hour. The counts cover the 105 versions published in the 45 hours after my entry appeared, on the last update before the Boston deadline.
+The leaderboard was recomputed on a 15-minute clock and republished whenever something had changed. The counts cover the 105 versions published in the 45 hours after my entry appeared, on the last update before the Boston deadline.
 
 Two caveats. In Head to Head, first place was shared: with one of my own measurement entries (explained below), and later with five entries that copied the allocation. Four-Way is scored on randomly drawn groups, so entries change order every time the board is recomputed. Mine was third on the first board, first more often than any other entry (the next best had 29), and never lower than tenth.
 
@@ -99,7 +99,7 @@ To fill that gap I fitted a model of $$P$$.
 
 It was wrong at the top. A calibration entry of 20 soldiers on every castle was predicted to score 7.7 to 8.5 and scored 6.13. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
 
-The constraints do not identify $$P$$: many different joint distributions reproduce the same scores and zero shares, and the prior had picked one softer than the real field in the range that matters, 25 to 60 soldiers on castles 3 to 5. Adding probes as constraints and refitting did not fix it: the model's best allocation changed shape on every refit. This took two days.
+The constraints do not identify $$P$$: many different joint distributions reproduce the same scores and zero shares, and the prior had picked one softer than the real field in the range that matters, 25 to 60 soldiers on castles 3 to 5. Adding probes as constraints and refitting did not fix it at first: the model's best allocation changed shape on every refit. This took two days. Only later, refitted with every measurement from the next section as a constraint, did the model reproduce all 123 known entries to within 0.01 and agree with the leaderboard about the best allocation. By then the measurements had already found it.
 
 ## Measuring the field directly
 
@@ -140,13 +140,13 @@ which is about 0.03 per castle. It is nearly the same for every allocation near 
 
 The measurements pointed to a region: almost nothing on castles 1 and 2, about 36 on castle 3, 46 to 48 on castle 4, and a handful on castle 5. My first entry there, 4-4-36-48-8, scored 9.290 and ranked 30th.
 
-From there I searched on the leaderboard. Head to Head scores are exact, so submitting an entry's neighbours (one soldier moved between two castles) and reading their scores on the next update gives the slope in each direction. Three hours and forty entries later, 4-6-36-47-7 was first. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
+From there I searched on the leaderboard. Head to Head scores are exact, so submitting an entry's neighbours (one soldier moved between two castles) and reading their scores on the next update gives the slope in each direction. Three hours and forty entries later, 4-6-36-47-7 was tied for first with one other entry, which had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
 
 ## Four-Way
 
 Four-Way is not separable. The payout depends on place in the group, which depends on all five castles and all three opponents, so it depends on the joint distribution (which numbers go together within an entry) and the marginals are not enough. Single-castle entries measure nothing.
 
-I used the same neighbour search on averages. The same entry moves about 0.02 between boards, more than the gap between good neighbours. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997: a plateau, where first place on any one board is a draw.
+I used the same neighbour search on averages. The same entry's score has a standard deviation of about 0.013 from one board to the next, more than the gap between good neighbours. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997: a plateau, where first place on any one board is a draw.
 
 ## Errors
 
