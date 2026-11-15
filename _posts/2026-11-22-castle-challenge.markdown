@@ -210,30 +210,6 @@ The four steps disturb each other: fixing a probe shifts the score distribution,
 
 Every step multiplies the starting weights. A kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
 
-### The cap
-
-The loop can settle on a crowd that is too soft: one against which some simple allocation would score far above anything on the real leaderboard. That cannot be right, because thousands of real entrants tried round-number allocations, and none of them scored that much.
-
-So a second stage tilts the fitted weights once more, along 22 features of each particle: the share of soldiers on each of castles 2 to 5, the largest share on any castle, the two largest together, the number of empty castles, and whether each castle holds at least 15, 30 or 45. The 60,000 weights cannot be adjusted freely again without undoing the fit, so this stage has only 22 knobs, one per feature. With $$f_i$$ the features of particle $$i$$ and $$\theta$$ the knobs:
-
-$$
-w_i(\theta) \propto w_i \, e^{\theta \cdot f_i}
-$$
-
-A positive knob on "castle 4 holds at least 45", for example, moves weight toward entries that are heavy on castle 4, which makes the crowd harder to beat there. The knobs are chosen to minimise
-
-$$
-L(\theta) = 2 \, D_{\text{scores}} + 2 \, E_{\text{zeros}} + 3 \, E_{\text{probes}} + 2 \, \max(0, \; s_{\text{round}} - s_{\text{leader}} - 0.05) + 0.002 \, \lVert \theta \rVert^2
-$$
-
-- $$D_{\text{scores}}$$ is the largest gap between the model's and the real cumulative score distributions, the Kolmogorov–Smirnov distance.
-- $$E_{\text{zeros}}$$ is the total error on the five zero shares.
-- $$E_{\text{probes}}$$ is the root-mean-square error on the probe scores.
-- $$s_{\text{round}}$$ is the best score any allocation in multiples of 5 gets against the model's crowd, and $$s_{\text{leader}}$$ is the real leader's score. The term is zero unless a round-number allocation would beat the real leader by more than 0.05.
-- The last term keeps the tilt small.
-
-Each term is something the crowd should get right, and the multipliers say how much each matters: a probe's score is exact, so it counts most. $$L$$ has no usable gradient, so it is minimised by Nelder–Mead simplex search, which only needs to evaluate $$L$$.
-
 ### Using the fitted field
 
 The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Repeating the whole fit on resampled leaderboard scores, with a fresh set of particles each time, gives a range for each prediction.
