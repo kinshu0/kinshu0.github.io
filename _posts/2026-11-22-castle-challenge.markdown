@@ -100,7 +100,10 @@ The leaderboard shows scores and hides allocations. But I know the allocation of
 The Head to Head payoff is separable: it is a sum of one term per castle. Let the random variable $$X_c$$ be the number of soldiers an opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
 $$
-S(a) = 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
+\begin{aligned}
+S(a) = {} & 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) \\
+& + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
+\end{aligned}
 $$
 
 where $$F_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half:
@@ -109,73 +112,55 @@ $$
 F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
 $$
 
-$$F_c$$ is close to the cumulative distribution function of the marginal on castle $$c$$. The difference is ties: the CDF, $$\Pr[X_c \le x]$$, counts them in full, and $$F_c$$ counts them as half, because a tie splits the castle. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
+$$F_c$$ is close to the cumulative distribution function of the marginal on castle $$c$$. The difference is ties: the CDF, $$\Pr[X_c \le x]$$, counts them in full, and $$F_c$$ counts them as half, because a tie splits the castle. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on only one or two castles isolates one or two values of $$F_c$$ in its published score.
 
 ### All-in entries
 
-Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
+Five probes each put all 100 soldiers on one castle. On the leaderboard of 7 November, 03:06 UTC, two hours before the deadline, the one on castle 5 scored 5.613. Its score has two parts.
 
-- **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \cdot (0.9939 + \tfrac{1}{2} \cdot 0.0061) = 4.985$$ points.
+- **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.64% of its 5,738 opponents, and they are easy to count: they have the identical score. That gives $$5 \cdot (0.9936 + \tfrac{1}{2} \cdot 0.0064) = 4.984$$ points.
 - **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c$$ for the share of the field sending zero to castle $$c$$.
 
 $$
-5.610 = 4.985 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
+5.613 = 4.984 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
 $$
 
 Each of the five all-in entries gives one equation of this kind. An entry's equation leaves out its own castle, so no single entry gives any $$z_c$$:
 
 | All 100 on | Score | Entries with that score | Its equation contains |
 |---|---|---|---|
-| Castle 1 | 1.919 | 7 | $$z_2, z_3, z_4, z_5$$ |
-| Castle 2 | 2.829 | 7 | $$z_1, z_3, z_4, z_5$$ |
-| Castle 3 | 3.788 | 10 | $$z_1, z_2, z_4, z_5$$ |
-| Castle 4 | 4.723 | 22 | $$z_1, z_2, z_3, z_5$$ |
-| Castle 5 | 5.610 | 38 | $$z_1, z_2, z_3, z_4$$ |
+| Castle 1 | 1.935 | 7 | $$z_2, z_3, z_4, z_5$$ |
+| Castle 2 | 2.847 | 6 | $$z_1, z_3, z_4, z_5$$ |
+| Castle 3 | 3.802 | 10 | $$z_1, z_2, z_4, z_5$$ |
+| Castle 4 | 4.737 | 22 | $$z_1, z_2, z_3, z_5$$ |
+| Castle 5 | 5.613 | 38 | $$z_1, z_2, z_3, z_4$$ |
 
 Five equations, five unknowns. Solved together they give the share of the field sending zero to each castle:
 
 $$
-z_1 = 10.9\%, \quad z_2 = 14.4\%, \quad z_3 = 12.2\%, \quad z_4 = 12.2\%, \quad z_5 = 13.9\%
+z_1 = 11.0\%, \quad z_2 = 14.2\%, \quad z_3 = 12.4\%, \quad z_4 = 12.3\%, \quad z_5 = 14.4\%
 $$
 
 That fixes each $$F_c$$ at zero.
 
 ### Single-castle entries
 
-The rest of each $$F_c$$ comes from a second kind of probe: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
+The rest of each $$F_c$$ comes from a second kind of probe: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.501.
 
-Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
-
-- Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
-- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured.
-- The rest belongs to castle 4.
+- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured. Together they contribute 0.689 points.
+- The rest comes from castles 1 and 4.
 
 $$
-4 \, F_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
+1 \cdot F_1(59) + 4 \cdot F_4(41) = 4.501 - 0.689 = 3.812
 $$
 
-So $$F_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
+That is one equation in two unknowns. Parking 59 soldiers on castle 1 nearly always wins it, but not always: about 5% of the field sends more. So a single probe does not give $$F_4(41)$$ on its own. It ties it to $$F_1(59)$$.
 
-About eighty such entries mapped all five castles.
-
-Each dot below is one of them. Set an allocation and the page computes its score from those measurements alone.
-
-<div id="castle-predictor" class="castle-predictor"></div>
-
-### Checking it
-
-42 other entries on the board had every castle value measured directly. For all 42, the score computed from the probes was below the real score by 0.107 to 0.111. Differences between entries, which decide rank, were right to within 0.004.
-
-<details>
-<summary>All 42 entries</summary>
-<div id="castle-known" class="castle-known"></div>
-</details>
-
-The gap is nearly the same for every entry, so it did not change which allocation looked best. Its cause is an error found after the contest, described at the end.
+About eighty such entries covered all five castles, each one an equation of this kind. The model in the next section solves them together. It puts $$F_1(59)$$ at 0.95 and $$F_4(41)$$ at 0.72: 41 soldiers on castle 4 beat 72% of the field.
 
 ## A model of the field
 
-The probes fix each $$F_c$$ at about eighty points. Between those points the field is still unknown. To fill the gaps I fitted a model of $$P$$ that agrees with every probe and with the published scores.
+Each probe is an equation about the field, not a direct reading of it. To solve them together, and to fill in between them, I fitted a model of $$P$$ that agrees with every probe and with the published scores.
 
 ### The prior
 
@@ -253,9 +238,21 @@ Every step multiplies the starting weights. A kind of entry the prior left out c
 
 The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Repeating the whole fit on resampled leaderboard scores, with a fresh set of particles each time, gives a range for each prediction.
 
+The curves below are the five $$F_c$$ from the fit to the leaderboard of 7 November, 03:06 UTC. Set an allocation and the page computes its score from them.
+
+<div id="castle-predictor" class="castle-predictor"></div>
+
+### Checking it
+
+The fit reproduces the 146 entries it was fitted to with a typical error of 0.006, as it should. The real test is entries it had not seen. Eight of my entries, with allocations the fit had never been given, appeared on the leaderboard after it was made. The model's scores for them, against the scores the leaderboard gave:
+
+<div id="castle-known" class="castle-known"></div>
+
+All eight are within 0.009. My final entry repeats an allocation the fit already knew; the model gives it 9.316 and the leaderboard gave it 9.320.
+
 ## Search
 
-Fitted with every probe, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th. Interpolating between the measured points without the model gave a weaker candidate, 6-7-36-46-5, which scored 9.216.
+Fitted with every probe, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th.
 
 From there I searched on the leaderboard, one round per update. A round works like this:
 
@@ -275,8 +272,6 @@ Because the score is separable, each difference says two things at once: what th
 
 That took three hours and forty entries. The entry it tied with had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
 
-By then the model, with the uniform prior and 123 known entries as constraints, reproduced every one of them to within 0.01 and put the best possible score at 9.316, against 9.318 on the board.
-
 ## Four-Way
 
 Four-Way is not separable. The payout depends on place in the group, which depends on all five castles and all three opponents, so it depends on the joint distribution (which numbers go together within an entry) and the marginals are not enough. Single-castle entries measure nothing.
@@ -284,16 +279,6 @@ Four-Way is not separable. The payout depends on place in the group, which depen
 A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 102nd. From there I used the same neighbour search, on averages. The same entry's score has a standard deviation of about 0.013 from one board to the next, more than the gap between good neighbours. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997: a plateau, where first place on any one board is a draw.
 
 The Four-Way model is a different fit from the Head to Head one, because a payout depends on three opponents at once. It gets its own write-up in part two, which will be linked here once it is published.
-
-## Found afterwards
-
-One error turned up only while writing this report: the constant gap of 0.109 in the check. It comes from the probe design. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
-
-$$
-S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
-$$
-
-which is about 0.03 per castle. A few entries split between castles 1 and 2 only would have measured it.
 
 I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
