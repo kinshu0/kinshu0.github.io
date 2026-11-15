@@ -93,22 +93,77 @@ That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still
 
 To fill that gap I fitted a model of $$P$$.
 
-- **Prior.** I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles, and each starts with equal weight.
-- **Fit.** The weights are adjusted in a loop until the weighted crowd reproduces the evidence. One pass:
-  1. *Score the crowd against itself.* Compute the crowd's five marginals from the current weights, and with them the score every particle would get against the crowd.
-  2. *Match the score distribution.* Compare the weighted histogram of those scores with the real leaderboard's, in bins 0.05 wide. Where the model has too much weight in a bin, shrink the weights of the particles in it; where too little, grow them.
-  3. *Match the zero shares.* For each castle, rescale the particles that send zero there, and those that do not, so the weighted share sending zero equals the measured $$z_c$$.
-  4. *Match each probe.* A probe with known score $$y$$ must score $$y$$ against the crowd. If $$g_i$$ is what the probe scores against particle $$i$$, multiply each weight by $$e^{\lambda g_i}$$, with $$\lambda$$ chosen so that the weighted average of $$g$$ equals $$y$$.
+### The prior
 
-  This runs a few hundred times. Every step multiplies the starting weights, so a kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
-- **Cap.** A second stage keeps the field from being too soft. Thousands of real entrants tried round-number allocations, so none of those should score much above the real leader against the model's crowd. The weights are tilted along a few particle features, with parameters $$\theta$$ chosen to minimise
+I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles. Particle $$i$$ has an allocation $$b_i$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
 
-  $$
-  L(\theta) = 2 \, D_{\text{scores}} + 2 \, E_{\text{zeros}} + 3 \, E_{\text{probes}} + 2 \, \max(0, \; s_{\text{round}} - s_{\text{leader}} - 0.05) + 0.002 \, \lVert \theta \rVert^2
-  $$
+### Fitting the weights
 
-  where $$D_{\text{scores}}$$ is the largest gap between the model's and the real cumulative score distributions (the Kolmogorov–Smirnov distance), $$E_{\text{zeros}}$$ and $$E_{\text{probes}}$$ are the errors on the zero shares and the probe scores, and $$s_{\text{round}}$$ is the best score any allocation in multiples of 5 gets against the model's crowd.
-- **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Refitting on resampled data gives a range for each prediction.
+The weights are adjusted in a loop until the weighted crowd reproduces the evidence. One pass has four steps, and the loop runs 300 passes.
+
+**1. Score the crowd against itself.** The current weights give the crowd's five marginals: for each castle, the share of weight on each number of soldiers. From those come $$F_1, \dots, F_5$$, and with them the score each particle would get against the crowd:
+
+$$
+s_i = \sum_{c=1}^{5} c \cdot F_c(b_{i,c})
+$$
+
+**2. Match the score distribution.** Sort scores into bins 0.05 wide. Let $$h(B)$$ be the share of real leaderboard scores in bin $$B$$, and $$m(B)$$ the total weight of the particles whose score falls in it. Each particle is rescaled by how far its bin is off:
+
+$$
+w_i \leftarrow w_i \left( \frac{h(B_i)}{m(B_i)} \right)^{0.3}
+$$
+
+Where the model has too much weight in a bin the particles in it shrink, and where too little they grow. The exponent 0.3 damps the step so the loop does not overshoot.
+
+**3. Match the zero shares.** For each castle $$c$$, let $$q_c$$ be the crowd's current share sending zero there. The particles that send zero are rescaled toward the measured $$z_c$$, and the rest toward $$1 - z_c$$:
+
+$$
+w_i \leftarrow
+\begin{cases}
+w_i \left( z_c / q_c \right)^{0.3} & \text{if } b_{i,c} = 0 \\
+w_i \left( (1 - z_c) / (1 - q_c) \right)^{0.3} & \text{otherwise}
+\end{cases}
+$$
+
+**4. Match each probe.** Take a probe with real score $$y$$. Let $$g_i$$ be the score the probe would get against particle $$i$$ alone. The crowd reproduces the probe when the weighted average of $$g$$ equals $$y$$. The weights are tilted until it does:
+
+$$
+w_i \leftarrow \frac{w_i \, e^{\lambda g_i}}{\sum_j w_j \, e^{\lambda g_j}}, \qquad \lambda \text{ chosen so that } \sum_i w_i \, g_i = y
+$$
+
+There is one unknown, $$\lambda$$, found by bisection. This form, an exponential tilt, is the smallest change to the weights that satisfies the constraint.
+
+Every step multiplies the starting weights. A kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
+
+### The cap
+
+The loop can settle on a crowd that is too soft: one against which some simple allocation would score far above anything on the real leaderboard. That cannot be right, because thousands of real entrants tried round-number allocations, and none of them scored that much.
+
+So a second stage tilts the fitted weights once more, along 22 features of each particle: the share of soldiers on each of castles 2 to 5, the largest share on any castle, the two largest together, the number of empty castles, and whether each castle holds at least 15, 30 or 45. With $$f_i$$ the features of particle $$i$$:
+
+$$
+w_i(\theta) \propto w_i \, e^{\theta \cdot f_i}
+$$
+
+The parameters $$\theta$$ are chosen to minimise
+
+$$
+L(\theta) = 2 \, D_{\text{scores}} + 2 \, E_{\text{zeros}} + 3 \, E_{\text{probes}} + 2 \, \max(0, \; s_{\text{round}} - s_{\text{leader}} - 0.05) + 0.002 \, \lVert \theta \rVert^2
+$$
+
+- $$D_{\text{scores}}$$ is the largest gap between the model's and the real cumulative score distributions, the Kolmogorov–Smirnov distance.
+- $$E_{\text{zeros}}$$ is the total error on the five zero shares.
+- $$E_{\text{probes}}$$ is the root-mean-square error on the probe scores.
+- $$s_{\text{round}}$$ is the best score any allocation in multiples of 5 gets against the model's crowd, and $$s_{\text{leader}}$$ is the real leader's score. The term is zero unless a round-number allocation would beat the real leader by more than 0.05.
+- The last term keeps the tilt small.
+
+$$L$$ has no usable gradient, so it is minimised by Nelder–Mead simplex search.
+
+### Using the fitted field
+
+The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Repeating the whole fit on resampled leaderboard scores, with a fresh set of particles each time, gives a range for each prediction.
+
+### Testing it
 
 Before trusting it I tested it on an entry it had not seen: 20 soldiers on every castle. The model predicted 7.8, with a range of 7.7 to 8.5. It scored 6.13.
 
