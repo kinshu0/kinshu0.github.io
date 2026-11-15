@@ -144,7 +144,7 @@ To fill that gap I fitted a model of $$P$$.
 
 ### The prior
 
-I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles. Particle $$i$$ has an allocation $$b_i$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
+I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles. Particle $$i$$ has an allocation $$b_i = (b_{i,1}, \dots, b_{i,5})$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
 
 ### Fitting the weights
 
@@ -155,6 +155,8 @@ The link between the hidden allocations and the visible scores is this: the lead
 $$
 s_i = \sum_{c=1}^{5} c \cdot F_c(b_{i,c})
 $$
+
+where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$.
 
 **2. Match the score distribution.** Sort scores into bins 0.05 wide. Let $$h(B)$$ be the share of real leaderboard scores in bin $$B$$, and $$m(B)$$ the total weight of the particles whose score falls in it. Each particle is rescaled by how far its bin is off:
 
