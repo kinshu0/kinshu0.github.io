@@ -123,15 +123,17 @@ It still did not find the answer. Its first recommendation put about 61 soldiers
 
 Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
-- Castle 1, with 59 soldiers: taken as a certain win, $$F_1(59) = 1$$, for $$1 \times 1 = 1$$ point. This did not come from the model's prior or from a measurement. It was a simplification in the arithmetic, on the reasoning that almost no one sends dozens of soldiers to a 1-point castle. The check below shows it is slightly off.
+Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
+
+- Castle 1, with 59 soldiers, contributes $$1 \times F_1(59) \approx 1$$ point.
 - Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
 - The rest belongs to castle 4.
 
 $$
-4 \, F_4(41) = 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
+4 \, F_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
 $$
 
-So $$F_4(41) = 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
+So $$F_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
 
 The first six of these showed how far off the fitted field was: 41 soldiers on castle 4 beat 71% of the field, where the model said 87%. About eighty such entries eventually mapped all five castles, and each one also went into the model as a constraint.
 
