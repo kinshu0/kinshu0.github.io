@@ -168,7 +168,7 @@ Where the model has too much weight in a bin the particles in it shrink, and whe
 
 The exponent 0.3 is there because the target moves. Changing the weights changes the marginals, which changes every particle's score in step 1, so particles shift between bins. A full correction would overshoot. A partial one, repeated, settles.
 
-**3. Match the zero shares.** For each castle $$c$$, let $$q_c$$ be the crowd's current share sending zero there. The particles that send zero are rescaled toward the measured $$z_c$$, and the rest toward $$1 - z_c$$, with the same damping:
+**3. Match the zero shares.** This is the same adjustment as step 2, applied to a different quantity. For each castle $$c$$ there are two numbers: $$q_c$$, the model's share sending zero there (the total weight of the particles with zero on castle $$c$$), and $$z_c$$, the real share measured by the all-in probes. The particles that send zero are rescaled by the ratio of real to model, and the rest by the ratio for the complement, with the same damping:
 
 $$
 w_i \leftarrow
