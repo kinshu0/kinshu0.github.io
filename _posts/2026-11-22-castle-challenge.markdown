@@ -329,7 +329,7 @@ The Four-Way model is a different fit from the Head to Head one, because a payou
 
 ## Closing notes
 
-I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named PROBE-MAKE-GAME-UNFAIR and NO-ONE-WINS-FROM-UNETHICAL-COMPETITION.
+I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named <span class="entry-name">"probe-make-game-unfair"</span> and <span class="entry-name">"no-one-wins-from-unethical-competition"</span>.
 
 <figure>
 <img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia" width="810" height="103">
