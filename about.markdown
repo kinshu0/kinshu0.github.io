@@ -20,7 +20,7 @@ Away from work I boulder, run and ski.
 
 <h2 id="contact">Contact</h2>
 
-Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0), and here is my [resume](/files/resume.pdf).
+Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0), and here is my [CV](/files/cv.pdf).
 
 ## Books
 
