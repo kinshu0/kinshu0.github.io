@@ -282,6 +282,17 @@ The Four-Way model is a different fit from the Head to Head one, because a payou
 
 ## Closing notes
 
+I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named PROBE-MAKE-GAME-UNFAIR and NO-ONE-WINS-FROM-UNETHICAL-COMPETITION.
+
+<figure>
+<img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, 9.26, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia, 9.26" width="1207" height="103">
+<figcaption>Two entries on the Head to Head leaderboard, 5 November. Both were in the top hundred until the organisers removed them.</figcaption>
+</figure>
+
+That raised a question I kept returning to: a score never proves an allocation, so an entry labelled as a measurement could be built to mislead anyone who trusted it, which is why only my own entries counted as evidence.
+
+An entry did not need to deceive to matter, either. Every score is an average over the whole field, so anyone willing to submit in bulk could move all of them. Each added entry can shift the gap between two others by up to 15 divided by the field size, about 0.003 here, and on the deadline leaderboard the top eleven entries were within 0.01 of each other. I saved all 319 versions of the leaderboard to watch for it. They show the organisers removing entries twice, 44 and then 71, and a batch of 100 arriving at once after the deadline that lowered the top score from 9.316 to 9.300 without changing the order at the top.
+
 I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
