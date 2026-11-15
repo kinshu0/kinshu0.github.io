@@ -93,11 +93,13 @@ That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still
 
 To fill that gap I fitted a model of $$P$$.
 
-- **Particles.** Tens of thousands of candidate allocations: every round-number split, plus random draws from a few plausible shapes. Each has a weight, standing for how common that kind of entry is in the field.
-- **Fit.** The weights were adjusted until the weighted crowd reproduced three things: the published distribution of all scores, the zero shares above, and the exact score of every probe. Among weightings that fit equally well, it kept the one closest to the starting weights, which acted as a prior on what people submit.
-- **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate.
+- **Prior.** I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles, and each starts with equal weight.
+- **Fit.** The weights were adjusted until the weighted crowd reproduced the evidence: the published distribution of all scores, the zero shares from the all-in probes, and the exact score of every other probe. Many weightings do that. The fit kept the one closest to the starting weights, a maximum-entropy fit, so wherever the evidence was silent the prior decided.
+- **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Refitting on resampled data gives a range for each prediction.
 
-It was wrong at the top. A calibration entry of 20 soldiers on every castle was predicted to score 7.7 to 8.5 and scored 6.13. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
+Before trusting it I tested it on an entry it had not seen: 20 soldiers on every castle. The model predicted a score of 7.7 to 8.5. It scored 6.13.
+
+It was wrong at the top as well. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
 
 The constraints do not identify $$P$$: many different joint distributions reproduce the same scores and zero shares, and the prior had picked one softer than the real field in the range that matters, 25 to 60 soldiers on castles 3 to 5. Adding probes as constraints and refitting did not fix it at first: the model's best allocation changed shape on every refit. This took two days. Only later, refitted with every measurement from the next section as a constraint, did the model reproduce all 123 known entries to within 0.01 and agree with the leaderboard about the best allocation. By then the measurements had already found it.
 
