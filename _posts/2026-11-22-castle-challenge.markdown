@@ -243,6 +243,8 @@ One number, $$\lambda$$, sets the direction and the strength. With $$\lambda = -
 
 $$\hat{y}$$ rises steadily as $$\lambda$$ rises, so exactly one value gives $$\hat{y} = y$$, and bisection finds it. Of all the reweightings that reach $$y$$, this one, an exponential tilt, changes the weights least.
 
+The probes are handled one at a time, in order, each with its own $$\lambda$$. A tilt for one probe disturbs the others, so no probe is matched exactly in a single pass: each tilt is applied at 0.3 of its full strength, and the 300 passes let all of them settle together. By the end the model reproduced the probes' scores to within 0.004 on average.
+
 The four steps disturb each other: fixing a probe shifts the score distribution, and fixing the distribution shifts the probes. That is why it is a loop. It stops changing when all the evidence holds at once.
 
 Every step multiplies the starting weights. A kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
