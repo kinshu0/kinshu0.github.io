@@ -64,7 +64,7 @@ $$F_c$$ is the cumulative distribution function of the marginal on castle $$c$$.
 
 Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
-- **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \times (0.9939 + \tfrac{1}{2} \times 0.0061) = 4.985$$ points.
+- **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \cdot (0.9939 + \tfrac{1}{2} \cdot 0.0061) = 4.985$$ points.
 - **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c$$ for the share of the field sending zero to castle $$c$$.
 
 $$
@@ -125,7 +125,7 @@ Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence.
 
 Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
 
-- Castle 1, with 59 soldiers, contributes $$1 \times F_1(59) \approx 1$$ point.
+- Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
 - Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
 - The rest belongs to castle 4.
 
