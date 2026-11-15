@@ -95,7 +95,7 @@ $$
 
 The other values need one more kind of entry: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
-- Castle 1, with 59 soldiers, wins: $$F_1(59) \approx 1$$, so 1 point.
+- Castle 1, with 59 soldiers: I assumed this beats everyone, $$F_1(59) = 1$$, for $$1 \times 1 = 1$$ point. This is the one step that is assumed, not measured, and the check below shows it is slightly off.
 - Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
 - The rest belongs to castle 4.
 
