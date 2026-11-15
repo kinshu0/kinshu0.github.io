@@ -285,14 +285,9 @@ A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 1
 
 The Four-Way model is a different fit from the Head to Head one, because a payout depends on three opponents at once. It gets its own write-up in part two, which will be linked here once it is published.
 
-## Errors
-
-- **Two days on a human-shaped prior.** Ten single-castle entries on day one would have told me more.
-- **Misreading the Four-Way rule** until the last night: I assumed each castle was decided pairwise within the group. A batch of entries built on that reading moved the scores in a way only the real rule allows.
-
 ## Found afterwards
 
-One more error turned up only while writing this report: the constant gap of 0.109 in the check. It comes from the probe design. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
+One error turned up only while writing this report: the constant gap of 0.109 in the check. It comes from the probe design. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
 
 $$
 S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
