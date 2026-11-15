@@ -77,15 +77,21 @@ $$
 5.610 = 4.985 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
 $$
 
-Five entries give five such equations in five unknowns:
+Each of the five all-in entries gives one equation of this kind. An entry's equation leaves out its own castle, so no single entry gives any $$z_c$$:
 
-| All 100 on | Score | Entries with that score | Share of the field sending zero there |
+| All 100 on | Score | Entries with that score | Its equation contains |
 |---|---|---|---|
-| Castle 1 | 1.919 | 7 | $$z_1 = 10.9\%$$ |
-| Castle 2 | 2.829 | 7 | $$z_2 = 14.4\%$$ |
-| Castle 3 | 3.788 | 10 | $$z_3 = 12.2\%$$ |
-| Castle 4 | 4.723 | 22 | $$z_4 = 12.2\%$$ |
-| Castle 5 | 5.610 | 38 | $$z_5 = 13.9\%$$ |
+| Castle 1 | 1.919 | 7 | $$z_2, z_3, z_4, z_5$$ |
+| Castle 2 | 2.829 | 7 | $$z_1, z_3, z_4, z_5$$ |
+| Castle 3 | 3.788 | 10 | $$z_1, z_2, z_4, z_5$$ |
+| Castle 4 | 4.723 | 22 | $$z_1, z_2, z_3, z_5$$ |
+| Castle 5 | 5.610 | 38 | $$z_1, z_2, z_3, z_4$$ |
+
+Five equations, five unknowns. Solved together they give the share of the field sending zero to each castle:
+
+$$
+z_1 = 10.9\%, \quad z_2 = 14.4\%, \quad z_3 = 12.2\%, \quad z_4 = 12.2\%, \quad z_5 = 13.9\%
+$$
 
 The other values need one more kind of entry: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
