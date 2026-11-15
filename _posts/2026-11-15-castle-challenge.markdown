@@ -50,6 +50,52 @@ Those entries come from people reasoning about each other, usually described as 
 
 Formally, the field is an empirical joint distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it. $$P$$ is not published: the leaderboard shows each entry's score and nothing about its allocation. The problem is to infer $$P$$ from scores. Head to Head depends on $$P$$ only through its five marginal distributions, one per castle: how many soldiers the field sends to that castle, ignoring the rest of each entry.
 
+<figure class="field-fig" style="overflow-x:auto">
+<svg viewBox="62 38 1076 514" role="img" aria-label="For each of the five castles, the distribution of soldiers the field sent, with my entry marked: 4, 5, 36, 48 and 7" style="width:100%;min-width:600px;height:auto;font-family:var(--sans)">
+<text x="70" y="78" font-size="40" font-weight="700" fill="var(--fg)" style="font-family:var(--serif)">Where the field put its soldiers, and where I put mine</text>
+<path d="M230.0,178 L230.0,128.0 L242.9,133.5 L255.7,139.3 L268.6,143.3 L281.4,150.8 L294.3,158.4 L307.1,163.5 L320.0,166.6 L332.9,169.6 L345.7,172.0 L358.6,173.8 L371.4,175.3 L384.3,176.3 L397.1,176.8 L410.0,177.1 L422.9,177.1 L435.7,177.1 L448.6,177.0 L461.4,176.8 L474.3,176.7 L487.1,176.8 L500.0,176.8 L512.9,176.8 L525.7,177.1 L538.6,177.1 L551.4,177.2 L564.3,177.2 L577.1,177.3 L590.0,177.3 L602.9,177.5 L615.7,177.6 L628.6,177.6 L641.4,177.6 L654.3,177.6 L667.1,177.6 L680.0,177.6 L692.9,177.6 L705.7,177.6 L718.6,177.6 L731.4,177.6 L744.3,177.5 L757.1,177.4 L770.0,177.4 L782.9,177.4 L795.7,177.5 L808.6,177.6 L821.4,177.8 L834.3,177.7 L847.1,177.7 L860.0,177.6 L872.9,177.5 L885.7,177.5 L898.6,177.5 L911.4,177.5 L924.3,177.5 L937.1,177.5 L950.0,177.5 L962.9,177.4 L975.7,177.2 L988.6,177.3 L1001.4,177.4 L1014.3,177.5 L1027.1,177.6 L1040.0,177.8 L1052.9,177.8 L1065.7,177.6 L1078.6,177.5 L1091.4,177.5 L1104.3,177.5 L1117.1,177.4 L1130.0,177.6 L1130.0,178 Z" fill="var(--line)" fill-opacity=".55" stroke="var(--dim)" stroke-width="1.3"/>
+<text x="70" y="160" font-size="23" font-weight="600" fill="var(--fg)">Castle 1</text>
+<text x="70" y="180" font-size="15" fill="var(--dim)">1 point</text>
+<line x1="281.4" y1="124" x2="281.4" y2="178" stroke="var(--acc)" stroke-width="3"/>
+<circle cx="281.4" cy="124" r="7" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"/>
+<text x="294.4" y="132" font-size="23" font-weight="700" fill="var(--acc)" style="font-family:var(--mono)">4</text>
+<path d="M230.0,256 L230.0,206.0 L242.9,213.2 L255.7,219.7 L268.6,223.7 L281.4,231.1 L294.3,236.4 L307.1,241.0 L320.0,242.9 L332.9,244.0 L345.7,244.6 L358.6,245.2 L371.4,244.4 L384.3,241.4 L397.1,240.0 L410.0,239.8 L422.9,240.1 L435.7,240.3 L448.6,243.7 L461.4,245.0 L474.3,247.3 L487.1,249.0 L500.0,250.1 L512.9,250.2 L525.7,251.5 L538.6,252.3 L551.4,252.9 L564.3,253.3 L577.1,253.9 L590.0,254.6 L602.9,254.9 L615.7,254.9 L628.6,255.0 L641.4,255.1 L654.3,255.1 L667.1,255.2 L680.0,255.0 L692.9,254.9 L705.7,255.0 L718.6,255.1 L731.4,255.2 L744.3,255.4 L757.1,255.6 L770.0,255.7 L782.9,255.7 L795.7,255.8 L808.6,255.8 L821.4,255.8 L834.3,255.9 L847.1,255.9 L860.0,255.9 L872.9,255.9 L885.7,255.9 L898.6,255.9 L911.4,255.9 L924.3,255.9 L937.1,255.9 L950.0,255.9 L962.9,255.9 L975.7,255.9 L988.6,255.9 L1001.4,255.9 L1014.3,256.0 L1027.1,256.0 L1040.0,255.7 L1052.9,255.7 L1065.7,255.7 L1078.6,255.7 L1091.4,255.6 L1104.3,255.9 L1117.1,255.9 L1130.0,255.9 L1130.0,256 Z" fill="var(--line)" fill-opacity=".55" stroke="var(--dim)" stroke-width="1.3"/>
+<text x="70" y="238" font-size="23" font-weight="600" fill="var(--fg)">Castle 2</text>
+<text x="70" y="258" font-size="15" fill="var(--dim)">2 points</text>
+<line x1="294.3" y1="202" x2="294.3" y2="256" stroke="var(--acc)" stroke-width="3"/>
+<circle cx="294.3" cy="202" r="7" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"/>
+<text x="307.3" y="210" font-size="23" font-weight="700" fill="var(--acc)" style="font-family:var(--mono)">5</text>
+<path d="M230.0,334 L230.0,286.6 L242.9,287.4 L255.7,288.1 L268.6,286.5 L281.4,294.8 L294.3,299.8 L307.1,307.6 L320.0,315.3 L332.9,323.5 L345.7,326.9 L358.6,327.0 L371.4,327.1 L384.3,327.5 L397.1,329.9 L410.0,330.2 L422.9,329.3 L435.7,327.4 L448.6,326.1 L461.4,319.8 L474.3,312.9 L487.1,308.4 L500.0,303.8 L512.9,294.4 L525.7,286.1 L538.6,284.7 L551.4,284.0 L564.3,285.8 L577.1,291.6 L590.0,300.1 L602.9,303.2 L615.7,303.3 L628.6,302.2 L641.4,301.5 L654.3,300.7 L667.1,300.5 L680.0,305.2 L692.9,310.4 L705.7,314.9 L718.6,319.0 L731.4,324.1 L744.3,326.0 L757.1,327.1 L770.0,328.1 L782.9,330.7 L795.7,331.5 L808.6,331.6 L821.4,331.3 L834.3,331.7 L847.1,331.9 L860.0,331.6 L872.9,331.0 L885.7,331.7 L898.6,331.6 L911.4,331.7 L924.3,331.8 L937.1,332.1 L950.0,331.7 L962.9,331.9 L975.7,331.7 L988.6,332.1 L1001.4,332.5 L1014.3,333.0 L1027.1,333.2 L1040.0,333.6 L1052.9,333.7 L1065.7,333.7 L1078.6,333.7 L1091.4,333.7 L1104.3,333.6 L1117.1,333.6 L1130.0,333.6 L1130.0,334 Z" fill="var(--line)" fill-opacity=".55" stroke="var(--dim)" stroke-width="1.3"/>
+<text x="70" y="316" font-size="23" font-weight="600" fill="var(--fg)">Castle 3</text>
+<text x="70" y="336" font-size="15" fill="var(--dim)">3 points</text>
+<line x1="692.9" y1="280" x2="692.9" y2="334" stroke="var(--acc)" stroke-width="3"/>
+<circle cx="692.9" cy="280" r="7" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"/>
+<text x="705.9" y="288" font-size="23" font-weight="700" fill="var(--acc)" style="font-family:var(--mono)">36</text>
+<path d="M230.0,412 L230.0,393.6 L242.9,390.1 L255.7,387.4 L268.6,387.9 L281.4,389.5 L294.3,391.7 L307.1,396.9 L320.0,403.2 L332.9,407.3 L345.7,408.7 L358.6,409.4 L371.4,409.3 L384.3,409.3 L397.1,409.3 L410.0,409.5 L422.9,409.9 L435.7,410.4 L448.6,410.2 L461.4,409.5 L474.3,405.4 L487.1,402.6 L500.0,399.8 L512.9,398.0 L525.7,396.5 L538.6,399.3 L551.4,400.0 L564.3,401.0 L577.1,401.1 L590.0,399.9 L602.9,395.2 L615.7,390.0 L628.6,382.9 L641.4,376.9 L654.3,368.3 L667.1,362.0 L680.0,362.0 L692.9,364.1 L705.7,366.9 L718.6,370.0 L731.4,374.2 L744.3,373.7 L757.1,374.8 L770.0,374.7 L782.9,378.4 L795.7,381.5 L808.6,383.0 L821.4,384.4 L834.3,388.5 L847.1,388.5 L860.0,388.9 L872.9,392.7 L885.7,395.5 L898.6,395.8 L911.4,400.3 L924.3,404.8 L937.1,406.6 L950.0,408.1 L962.9,409.0 L975.7,409.7 L988.6,410.0 L1001.4,410.7 L1014.3,410.3 L1027.1,410.6 L1040.0,410.7 L1052.9,410.2 L1065.7,410.3 L1078.6,410.8 L1091.4,410.6 L1104.3,410.6 L1117.1,411.2 L1130.0,411.1 L1130.0,412 Z" fill="var(--line)" fill-opacity=".55" stroke="var(--dim)" stroke-width="1.3"/>
+<text x="70" y="394" font-size="23" font-weight="600" fill="var(--fg)">Castle 4</text>
+<text x="70" y="414" font-size="15" fill="var(--dim)">4 points</text>
+<line x1="847.1" y1="358" x2="847.1" y2="412" stroke="var(--acc)" stroke-width="3"/>
+<circle cx="847.1" cy="358" r="7" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"/>
+<text x="860.1" y="366" font-size="23" font-weight="700" fill="var(--acc)" style="font-family:var(--mono)">48</text>
+<path d="M230.0,490 L230.0,440.0 L242.9,447.4 L255.7,452.2 L268.6,454.4 L281.4,456.1 L294.3,461.2 L307.1,464.7 L320.0,468.5 L332.9,472.7 L345.7,479.6 L358.6,484.3 L371.4,485.5 L384.3,485.7 L397.1,486.3 L410.0,486.5 L422.9,486.7 L435.7,487.3 L448.6,487.6 L461.4,487.9 L474.3,487.3 L487.1,486.2 L500.0,484.9 L512.9,484.1 L525.7,483.9 L538.6,484.4 L551.4,485.5 L564.3,486.7 L577.1,487.4 L590.0,487.1 L602.9,485.1 L615.7,481.8 L628.6,478.8 L641.4,474.9 L654.3,471.6 L667.1,467.8 L680.0,465.5 L692.9,464.5 L705.7,464.1 L718.6,455.8 L731.4,452.4 L744.3,452.9 L757.1,450.8 L770.0,447.8 L782.9,451.4 L795.7,457.3 L808.6,460.3 L821.4,464.1 L834.3,469.3 L847.1,471.4 L860.0,462.2 L872.9,454.4 L885.7,452.3 L898.6,450.4 L911.4,450.1 L924.3,457.9 L937.1,464.6 L950.0,466.1 L962.9,467.4 L975.7,471.9 L988.6,472.9 L1001.4,474.4 L1014.3,475.7 L1027.1,477.7 L1040.0,479.8 L1052.9,483.2 L1065.7,483.7 L1078.6,484.7 L1091.4,485.1 L1104.3,485.2 L1117.1,485.7 L1130.0,485.8 L1130.0,490 Z" fill="var(--line)" fill-opacity=".55" stroke="var(--dim)" stroke-width="1.3"/>
+<text x="70" y="472" font-size="23" font-weight="600" fill="var(--fg)">Castle 5</text>
+<text x="70" y="492" font-size="15" fill="var(--dim)">5 points</text>
+<line x1="320.0" y1="436" x2="320.0" y2="490" stroke="var(--acc)" stroke-width="3"/>
+<circle cx="320.0" cy="436" r="7" fill="var(--acc)" stroke="var(--bg)" stroke-width="2"/>
+<text x="333.0" y="444" font-size="23" font-weight="700" fill="var(--acc)" style="font-family:var(--mono)">7</text>
+<text x="230.0" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">0</text>
+<text x="358.6" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">10</text>
+<text x="487.1" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">20</text>
+<text x="615.7" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">30</text>
+<text x="744.3" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">40</text>
+<text x="872.9" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">50</text>
+<text x="1001.4" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">60</text>
+<text x="1130.0" y="514" text-anchor="middle" font-size="15" fill="var(--dim)">70</text>
+<text x="1130" y="536" text-anchor="end" font-size="15" fill="var(--dim)">soldiers sent to the castle</text>
+</svg>
+<figcaption>The shape for each castle is the field, as fitted by the model described below. The marker is my entry.</figcaption>
+</figure>
+
 ## Probes
 
 The leaderboard shows scores and hides allocations. But I know the allocation of any entry I submit, so each of my own entries is an exact fact about the field: this allocation scores this much. I call an entry submitted for that purpose a probe.
