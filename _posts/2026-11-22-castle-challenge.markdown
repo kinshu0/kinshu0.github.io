@@ -180,13 +180,29 @@ $$
 
 If the crowd has 6% sending zero to castle 5 and the measured share is 13.9%, the zero-senders are multiplied by $$(13.9 / 6)^{0.3} = 1.29$$ and everyone else by $$(86.1 / 94)^{0.3} = 0.97$$.
 
-**4. Match each probe.** Take a probe with real score $$y$$. Let $$g_i$$ be the score the probe would get against particle $$i$$ alone. The crowd reproduces the probe when the weighted average of $$g$$ equals $$y$$. The weights are tilted until it does:
+**4. Match each probe.** A probe is an entry whose allocation and real score are both known. Take the calibration entry, 20-20-20-20-20, with real score $$y = 6.13$$.
+
+*One opponent at a time.* Pick a single particle $$i$$ and play the probe against it one-on-one: castle by castle, the probe takes the points, splits them, or gets nothing. Call the points the probe takes $$g_i$$. Against the particle 0-0-0-45-55, the probe wins castles 1, 2 and 3 and loses castles 4 and 5, so $$g_i = 1 + 2 + 3 = 6$$. $$g_i$$ is a fixed number between 0 and 15. It depends only on the two allocations, and no weights are involved yet. There is one $$g_i$$ for every particle.
+
+*Against the whole crowd.* A Head to Head score is the average of these one-on-one results over all opponents. In the model the opponents are the particles, each counted by its weight, so the model's score for the probe is the weighted average:
 
 $$
-w_i \leftarrow \frac{w_i \, e^{\lambda g_i}}{\sum_j w_j \, e^{\lambda g_j}}, \qquad \lambda \text{ chosen so that } \sum_i w_i \, g_i = y
+\hat{y} = \sum_i w_i \, g_i
 $$
 
-Here is why this form works. $$g_i$$ is large for the particles the probe does well against. Suppose the crowd gives the probe 7.8 and its real score is 6.13. Then the crowd has too much weight on particles the probe beats. A negative $$\lambda$$ takes weight away from them, most from the ones it beats most, and the probe's score against the crowd falls. The score moves in one direction as $$\lambda$$ moves, so a bisection search finds the value that lands on $$y$$. Of all the ways to change the weights so that the probe comes out right, this one changes them least.
+*The constraint.* The real leaderboard says the probe scores $$y$$, so the crowd is right about this probe only if $$\hat{y} = y$$. At first it was not: $$\hat{y} = 7.8$$ against $$y = 6.13$$. A model score that is too high means the crowd is too easy for the probe. It has too much weight on particles with a large $$g_i$$, the ones the probe beats heavily.
+
+*The adjustment.* Multiply every weight by a factor that depends on its $$g_i$$, then rescale so the weights sum to 1 again:
+
+$$
+w_i \leftarrow \frac{w_i \, e^{\lambda g_i}}{\sum_j w_j \, e^{\lambda g_j}}
+$$
+
+One number, $$\lambda$$, sets the direction and the strength. With $$\lambda = 0$$ nothing changes. With $$\lambda = -0.1$$, a particle the probe beats 12 to 3 is multiplied by $$e^{-1.2} = 0.30$$, and one it loses to 3 to 12 by $$e^{-0.3} = 0.74$$. Weight moves from the opponents the probe crushes to the ones it struggles against, and $$\hat{y}$$ falls. A positive $$\lambda$$ does the opposite.
+
+*Finding* $$\lambda$$. $$\hat{y}$$ rises steadily as $$\lambda$$ rises, so exactly one value gives $$\hat{y} = y$$. Bisection finds it: try a value, see whether $$\hat{y}$$ is above or below $$y$$, halve the interval, repeat.
+
+*Why this factor.* Many reweightings would bring the probe to $$y$$. This one treats all particles with the same $$g_i$$ alike, since the probe gives no reason to tell them apart, and of all the reweightings that reach $$y$$ it changes the weights least. It is called an exponential tilt.
 
 The four steps disturb each other: fixing a probe shifts the score distribution, and fixing the distribution shifts the probes. That is why it is a loop. It stops changing when all the evidence holds at once.
 
