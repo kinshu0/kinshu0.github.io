@@ -185,7 +185,6 @@ A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 1
 - **Two days on a human-shaped prior.** Ten single-castle entries on day one would have told me more.
 - **The castle 1 assumption** above. A few entries split between castles 1 and 2 only would have measured it.
 - **Misreading the Four-Way rule** until the last night: I assumed each castle was decided pairwise within the group. A batch of entries built on that reading moved the scores in a way only the real rule allows.
-- **Twenty-eight entries never appeared on the board,** and for a day I read that as delay.
 
 I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
