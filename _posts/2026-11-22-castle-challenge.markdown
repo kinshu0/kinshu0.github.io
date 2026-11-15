@@ -123,7 +123,7 @@ It still did not find the answer. Its first recommendation put about 61 soldiers
 
 Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
-- Castle 1, with 59 soldiers: I assumed this beats everyone, $$F_1(59) = 1$$, for $$1 \times 1 = 1$$ point. This is the one step that is assumed, not measured, and the check below shows it is slightly off.
+- Castle 1, with 59 soldiers: taken as a certain win, $$F_1(59) = 1$$, for $$1 \times 1 = 1$$ point. This did not come from the model's prior or from a measurement. It was a simplification in the arithmetic, on the reasoning that almost no one sends dozens of soldiers to a 1-point castle. The check below shows it is slightly off.
 - Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
 - The rest belongs to castle 4.
 
