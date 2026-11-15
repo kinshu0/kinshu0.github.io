@@ -220,14 +220,112 @@ From there I searched on the leaderboard, one round per update. A round works li
 
 Because the score is separable, each difference says two things at once: what the last soldier is worth on the castle it left, and what one more is worth on the castle it joined. Four rounds were enough.
 
-| Round | Base | What the neighbours showed | Result |
-|---|---|---|---|
-| 1 | 4-4-36-48-8 (9.290, rank 30) | Any soldier taken off castle 4 costs, up to 0.047. Castle 1 from 4 to 3 costs 0.070. | Keep castles 1 and 4; try taking from castle 5. |
-| 2 | 4-4-36-48-8 | Castle 5 to castle 2 gains 0.020; castle 5 to castle 1 gains 0.018; every other move loses. | New base 4-5-36-48-7, rank 14. |
-| 3 | 4-5-36-48-7 | Every single move tried costs, from 0.001 to 0.043. | A local optimum; try the cheapest moves in pairs and the untested ones. |
-| 4 | 4-5-36-48-7 | Castle 4 to castle 2 gains 0.003. | 4-6-36-47-7 at 9.302, tied for first. |
+<figure class="search-fig" style="overflow-x:auto">
+<svg viewBox="0 0 660 727" role="img" aria-label="For each of the four search rounds, the change in score from moving one soldier between castles, relative to the base entry" style="width:100%;min-width:560px;height:auto;font:12.5px var(--sans)">
+<text x="0" y="18" font-weight="600" fill="var(--fg)">Round 1</text>
+<text x="62" y="18" fill="var(--dim)">base 4-4-36-48-8, scoring 9.287</text>
+<text x="0" y="41" fill="var(--fg)">castle 4 → castle 2</text>
+<rect x="495.8" y="31" width="11.2" height="11" rx="2" fill="var(--dim)"/>
+<text x="490.8" y="41" text-anchor="end" fill="var(--dim)">−0.003</text>
+<text x="0" y="62" fill="var(--fg)">castle 4 → castle 1</text>
+<rect x="488.4" y="52" width="18.6" height="11" rx="2" fill="var(--dim)"/>
+<text x="483.4" y="62" text-anchor="end" fill="var(--dim)">−0.005</text>
+<text x="0" y="83" fill="var(--fg)">castle 4 → castle 3</text>
+<rect x="428.9" y="73" width="78.1" height="11" rx="2" fill="var(--dim)"/>
+<text x="423.9" y="83" text-anchor="end" fill="var(--dim)">−0.021</text>
+<text x="0" y="104" fill="var(--fg)">castle 4 → castle 5</text>
+<rect x="332.2" y="94" width="174.8" height="11" rx="2" fill="var(--dim)"/>
+<text x="327.2" y="104" text-anchor="end" fill="var(--dim)">−0.047</text>
+<text x="0" y="125" fill="var(--fg)">castle 1 → castle 5</text>
+<rect x="246.6" y="115" width="260.4" height="11" rx="2" fill="var(--dim)"/>
+<text x="241.6" y="125" text-anchor="end" fill="var(--dim)">−0.070</text>
+<line x1="507.0" y1="28" x2="507.0" y2="129" stroke="var(--fg)" stroke-width="1"/>
+<text x="660" y="18" text-anchor="end" fill="var(--dim)" font-style="italic">no move helps</text>
+<text x="0" y="163" font-weight="600" fill="var(--fg)">Round 2</text>
+<text x="62" y="163" fill="var(--dim)">base 4-4-36-48-8, scoring 9.283</text>
+<text x="0" y="186" fill="var(--fg)" font-weight="600">castle 5 → castle 2</text>
+<rect x="507.0" y="176" width="74.4" height="11" rx="2" fill="var(--acc)"/>
+<text x="586.4" y="186" fill="var(--fg)" font-weight="600">+0.020</text>
+<text x="0" y="207" fill="var(--fg)">castle 5 → castle 1</text>
+<rect x="507.0" y="197" width="67.0" height="11" rx="2" fill="var(--acc)"/>
+<text x="579.0" y="207" fill="var(--fg)">+0.018</text>
+<text x="0" y="228" fill="var(--fg)">castle 5 → castle 3</text>
+<rect x="507.0" y="218" width="11.2" height="11" rx="2" fill="var(--acc)"/>
+<text x="523.2" y="228" fill="var(--fg)">+0.003</text>
+<text x="0" y="249" fill="var(--fg)">castle 5 → castle 4</text>
+<rect x="499.6" y="239" width="7.4" height="11" rx="2" fill="var(--dim)"/>
+<text x="494.6" y="249" text-anchor="end" fill="var(--dim)">−0.002</text>
+<text x="0" y="270" fill="var(--fg)">5 → 1 and 5 → 2</text>
+<rect x="447.5" y="260" width="59.5" height="11" rx="2" fill="var(--dim)"/>
+<text x="442.5" y="270" text-anchor="end" fill="var(--dim)">−0.016</text>
+<text x="0" y="291" fill="var(--fg)">castle 3 → castle 4</text>
+<rect x="395.4" y="281" width="111.6" height="11" rx="2" fill="var(--dim)"/>
+<text x="390.4" y="291" text-anchor="end" fill="var(--dim)">−0.030</text>
+<text x="0" y="312" fill="var(--fg)">castle 2 → castle 4</text>
+<rect x="321.0" y="302" width="186.0" height="11" rx="2" fill="var(--dim)"/>
+<text x="316.0" y="312" text-anchor="end" fill="var(--dim)">−0.050</text>
+<text x="0" y="333" fill="var(--fg)">5 → 4 and 5 → 4</text>
+<rect x="309.8" y="323" width="197.2" height="11" rx="2" fill="var(--dim)"/>
+<text x="304.8" y="333" text-anchor="end" fill="var(--dim)">−0.053</text>
+<line x1="507.0" y1="173" x2="507.0" y2="337" stroke="var(--fg)" stroke-width="1"/>
+<text x="660" y="163" text-anchor="end" fill="var(--dim)" font-style="italic">best move becomes the new base</text>
+<text x="0" y="371" font-weight="600" fill="var(--fg)">Round 3</text>
+<text x="62" y="371" fill="var(--dim)">base 4-5-36-48-7, scoring 9.301</text>
+<text x="0" y="394" fill="var(--fg)">castle 3 → castle 2</text>
+<rect x="503.3" y="384" width="3.7" height="11" rx="2" fill="var(--dim)"/>
+<text x="498.3" y="394" text-anchor="end" fill="var(--dim)">−0.001</text>
+<text x="0" y="415" fill="var(--fg)">castle 4 → castle 1</text>
+<rect x="477.2" y="405" width="29.8" height="11" rx="2" fill="var(--dim)"/>
+<text x="472.2" y="415" text-anchor="end" fill="var(--dim)">−0.008</text>
+<text x="0" y="436" fill="var(--fg)">castle 3 → castle 1</text>
+<rect x="462.4" y="426" width="44.6" height="11" rx="2" fill="var(--dim)"/>
+<text x="457.4" y="436" text-anchor="end" fill="var(--dim)">−0.012</text>
+<text x="0" y="457" fill="var(--fg)">4 → 1 and 4 → 2</text>
+<rect x="443.8" y="447" width="63.2" height="11" rx="2" fill="var(--dim)"/>
+<text x="438.8" y="457" text-anchor="end" fill="var(--dim)">−0.017</text>
+<text x="0" y="478" fill="var(--fg)">2 → 1 and 4 → 1</text>
+<rect x="432.6" y="468" width="74.4" height="11" rx="2" fill="var(--dim)"/>
+<text x="427.6" y="478" text-anchor="end" fill="var(--dim)">−0.020</text>
+<text x="0" y="499" fill="var(--fg)">castle 4 → castle 3</text>
+<rect x="425.2" y="489" width="81.8" height="11" rx="2" fill="var(--dim)"/>
+<text x="420.2" y="499" text-anchor="end" fill="var(--dim)">−0.022</text>
+<text x="0" y="520" fill="var(--fg)">4 → 1 and 4 → 3</text>
+<rect x="347.0" y="510" width="160.0" height="11" rx="2" fill="var(--dim)"/>
+<text x="342.0" y="520" text-anchor="end" fill="var(--dim)">−0.043</text>
+<line x1="507.0" y1="381" x2="507.0" y2="524" stroke="var(--fg)" stroke-width="1"/>
+<text x="660" y="371" text-anchor="end" fill="var(--dim)" font-style="italic">no single move helps</text>
+<text x="0" y="558" font-weight="600" fill="var(--fg)">Round 4</text>
+<text x="62" y="558" fill="var(--dim)">base 4-5-36-48-7, scoring 9.299</text>
+<text x="0" y="581" fill="var(--fg)" font-weight="600">castle 4 → castle 2</text>
+<rect x="507.0" y="571" width="11.2" height="11" rx="2" fill="var(--acc)"/>
+<text x="523.2" y="581" fill="var(--fg)" font-weight="600">+0.003</text>
+<text x="0" y="602" fill="var(--fg)">3 → 2 and 4 → 2</text>
+<rect x="507.0" y="592" width="1.5" height="11" rx="2" fill="var(--dim)"/>
+<text x="512.0" y="602" fill="var(--fg)">0.000</text>
+<text x="0" y="623" fill="var(--fg)">3 → 1 and 4 → 2</text>
+<rect x="473.5" y="613" width="33.5" height="11" rx="2" fill="var(--dim)"/>
+<text x="468.5" y="623" text-anchor="end" fill="var(--dim)">−0.009</text>
+<text x="0" y="644" fill="var(--fg)">castle 1 → castle 2</text>
+<rect x="451.2" y="634" width="55.8" height="11" rx="2" fill="var(--dim)"/>
+<text x="446.2" y="644" text-anchor="end" fill="var(--dim)">−0.015</text>
+<text x="0" y="665" fill="var(--fg)">castle 3 → castle 4</text>
+<rect x="391.7" y="655" width="115.3" height="11" rx="2" fill="var(--dim)"/>
+<text x="386.7" y="665" text-anchor="end" fill="var(--dim)">−0.031</text>
+<text x="0" y="686" fill="var(--fg)">3 → 1 and 3 → 4</text>
+<rect x="361.9" y="676" width="145.1" height="11" rx="2" fill="var(--dim)"/>
+<text x="356.9" y="686" text-anchor="end" fill="var(--dim)">−0.039</text>
+<text x="0" y="707" fill="var(--fg)">3 → 4 and 3 → 4</text>
+<rect x="306.1" y="697" width="200.9" height="11" rx="2" fill="var(--dim)"/>
+<text x="301.1" y="707" text-anchor="end" fill="var(--dim)">−0.054</text>
+<line x1="507.0" y1="568" x2="507.0" y2="711" stroke="var(--fg)" stroke-width="1"/>
+<text x="660" y="558" text-anchor="end" fill="var(--dim)" font-style="italic">tied for first</text>
+</svg>
+<figcaption>Each bar is one neighbour: the base entry with soldiers moved between castles, and what that did to the score. Gains point right.</figcaption>
+</figure>
 
-That took three hours and forty entries. The entry it tied with had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
+Round 1 said to leave castles 1 and 4 alone. Round 2 found the gain: a soldier from castle 5 to castle 2. Round 3 found no single move that helped. Round 4 found one more, castle 4 to castle 2, which tied for first.
+
+That took under three hours and 32 entries, 27 of which reached the leaderboard. The entry it tied with had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
 
 ## Four-Way
 
