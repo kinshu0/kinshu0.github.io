@@ -60,7 +60,7 @@ $$
 F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
 $$
 
-$$F_c$$ is the cumulative distribution function of the marginal on castle $$c$$. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
+$$F_c$$ is close to the cumulative distribution function of the marginal on castle $$c$$. The difference is ties: the CDF, $$\Pr[X_c \le x]$$, counts them in full, and $$F_c$$ counts them as half, because a tie splits the castle. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
 Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
@@ -126,7 +126,7 @@ Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence.
 Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
 
 - Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
-- Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
+- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured.
 - The rest belongs to castle 4.
 
 $$
