@@ -68,21 +68,21 @@ $$
 
 The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
-Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. It wins castle 5 against everyone, for 5 points, and on each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$:
+Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. On castle 5 it beats every entry except the 37 others with the identical score, which are the same allocation and tie it. On each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$ and 6,037 opponents:
 
 $$
-5.610 = 5 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
+5.610 = 5 \left( 1 - \tfrac{1}{2} \cdot \tfrac{37}{6037} \right) + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
 $$
 
 Five entries give five such equations in five unknowns:
 
-| All 100 on | Score | Share of the field sending zero there |
-|---|---|---|
-| Castle 1 | 1.919 | $$z_1 = 9.7\%$$ |
-| Castle 2 | 2.829 | $$z_2 = 13.8\%$$ |
-| Castle 3 | 3.788 | $$z_3 = 12.0\%$$ |
-| Castle 4 | 4.723 | $$z_4 = 12.2\%$$ |
-| Castle 5 | 5.610 | $$z_5 = 14.3\%$$ |
+| All 100 on | Score | Identical entries | Share of the field sending zero there |
+|---|---|---|---|
+| Castle 1 | 1.919 | 7 | $$z_1 = 10.9\%$$ |
+| Castle 2 | 2.829 | 7 | $$z_2 = 14.4\%$$ |
+| Castle 3 | 3.788 | 10 | $$z_3 = 12.2\%$$ |
+| Castle 4 | 4.723 | 22 | $$z_4 = 12.2\%$$ |
+| Castle 5 | 5.610 | 38 | $$z_5 = 13.9\%$$ |
 
 The other values need one more kind of entry: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
@@ -91,10 +91,10 @@ The other values need one more kind of entry: soldiers on one castle, the rest p
 - The rest belongs to castle 4.
 
 $$
-4 \, F_4(41) = 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.675 = 2.793
+4 \, F_4(41) = 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
 $$
 
-So $$F_4(41) = 2.793 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
+So $$F_4(41) = 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
 
 About eighty such entries mapped all five castles. Each dot below is one. Set an allocation and the page computes its score from those measurements alone.
 
@@ -102,14 +102,14 @@ About eighty such entries mapped all five castles. Each dot below is one. Set an
 
 ### Checking it
 
-42 other entries on the board had every castle value measured directly. For all 42, the score computed from the probes was below the real score by 0.111 to 0.116. Differences between entries, which decide rank, were right to within 0.005.
+42 other entries on the board had every castle value measured directly. For all 42, the score computed from the probes was below the real score by 0.107 to 0.111. Differences between entries, which decide rank, were right to within 0.004.
 
 <details>
 <summary>All 42 entries</summary>
 <div id="castle-known" class="castle-known"></div>
 </details>
 
-The constant 0.113 is an error in the probe design, found while writing this up. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
+The constant 0.109 is an error in the probe design, found while writing this up. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
 
 $$
 S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)

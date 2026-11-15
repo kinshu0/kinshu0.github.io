@@ -72,7 +72,7 @@
       return;
     }
     out.appendChild(line('From the probes', f3(mid), exact ? 'every castle value was measured directly' : 'between ' + f3(lo) + ' and ' + f3(hi) + '; some values fall between measured points'));
-    out.appendChild(line('Plus the 0.113 constant', f3(mid + D.offset), 'see the next section'));
+    out.appendChild(line('Plus the ' + D.offset.toFixed(3) + ' constant', f3(mid + D.offset), 'see the next section'));
     var hit = D.known.filter(function (k) { return k[0].join() === a.join(); })[0];
     out.appendChild(line('Real leaderboard', hit ? f3(hit[1]) : 'unknown', hit ? 'I had this entry on the board' : 'I never submitted this allocation'));
   }
