@@ -40,7 +40,7 @@ The organisers draw 1,000,000 random groups of four from the field, and your sco
 
 Every allocation loses to some other allocation. Put 48 on castle 4 and someone with 49 takes it from you and spends the difference elsewhere. So there is no best allocation in general, only a best allocation against the entries that were actually submitted.
 
-Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. Stated precisely, the field is an empirical distribution $$P$$ over the 4.6 million ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it:
+Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. Stated precisely, the field is an empirical distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it:
 
 $$
 a^{\ast} = \arg\max_{a} \; \mathbb{E}_{b \sim P} \left[ u(a, b) \right]
