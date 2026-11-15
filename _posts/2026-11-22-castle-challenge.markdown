@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First in the OpenAI, Citadel Securities and Sequoia Castle Challenge"
+title: "1st place in the OpenAI × Citadel Securities × Sequoia Castle Challenge"
 date: 2026-11-22 14:00:00 -0500
 permalink: /castle-challenge/
 math: true
