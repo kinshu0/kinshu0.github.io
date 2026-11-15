@@ -293,7 +293,7 @@ That raised a question I kept returning to: a score never proves an allocation, 
 
 An entry did not need to deceive to matter, either. Every score is an average over the whole field, so anyone willing to submit in bulk could move all of them. Each added entry can shift the gap between two others by up to 15 divided by the field size, about 0.003 here, and on the deadline leaderboard the top eleven entries were within 0.01 of each other. I saved all 319 versions of the leaderboard to watch for it. They show the organisers removing entries twice, 44 and then 71, and a batch of 100 arriving at once after the deadline that lowered the top score from 9.316 to 9.300 without changing the order at the top.
 
-This was evening work: after my day job, usually until about midnight, with check-ins from my phone during the day through Claude Code's Remote Control and the occasional steer over lunch. I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
+This was evening work: after my day job, usually until about midnight, with an occasional steer from my phone during lunch, through Claude Code's Remote Control. I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
 <script src="/assets/castle/predictor-data.js"></script>
