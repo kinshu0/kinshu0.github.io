@@ -55,10 +55,16 @@ Many different fields produce the same distribution of scores, and the model had
 Head to Head scores add up castle by castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
 $$
-S(a) = \sum_{c=1}^{5} c \, F_c(a_c), \qquad F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
+S(a) = 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
 $$
 
-so $$F_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half. The score depends on the field only through the five functions $$F_1, \dots, F_5$$, and nothing about one castle affects another. An entry that puts soldiers on a single castle therefore reads off one value of one $$F_c$$, straight from its published score.
+where $$F_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half:
+
+$$
+F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
+$$
+
+The score depends on the field only through the five functions $$F_1, \dots, F_5$$, and nothing about one castle affects another. An entry that puts soldiers on a single castle therefore reads off one value of one $$F_c$$, straight from its published score.
 
 One example. I submitted 59-0-0-41-0, and on the final board it scored 4.468.
 
