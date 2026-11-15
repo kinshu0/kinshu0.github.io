@@ -40,8 +40,8 @@ This is a Colonel Blotto game. You have 100 soldiers to split across five castle
 
 The organisers draw 1,000,000 random groups of four from the field, and your score is your average payout, out of 9.
 
-<figure class="fw-fig">
-<svg viewBox="0 0 662 196" role="img" aria-label="Three example groups of four entries, ranked by castle points and paid 9, 4, 2 and 0" style="width:100%;height:auto;font:13px var(--sans)">
+<figure class="fw-fig" style="overflow-x:auto">
+<svg viewBox="0 0 662 196" role="img" aria-label="Three example groups of four entries, ranked by castle points and paid 9, 4, 2 and 0" style="width:100%;min-width:520px;height:auto;font:13px var(--sans)">
 <text x="148" y="16" text-anchor="middle" fill="var(--dim)">1st place</text>
 <text x="148" y="34" text-anchor="middle" fill="var(--fg)" font-weight="600">pays 9</text>
 <text x="262" y="16" text-anchor="middle" fill="var(--dim)">2nd place</text>
