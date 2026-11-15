@@ -4,7 +4,7 @@ title: "1st place in the OpenAI × Citadel Securities × Sequoia Castle Challeng
 date: 2026-11-15 12:00:00 -0500
 permalink: /castle-challenge/
 math: true
-description: "A Colonel Blotto puzzle with about six thousand entries. I used the leaderboard to measure the field, one castle at a time, then searched my way to the top."
+description: "A strategy puzzle with about six thousand entries: split 100 soldiers across five castles. I used the leaderboard to measure the field, one castle at a time, then searched my way to the top."
 thumb: /assets/castle/first-light-thumb.png
 image: /assets/castle/first-light.png
 ---
