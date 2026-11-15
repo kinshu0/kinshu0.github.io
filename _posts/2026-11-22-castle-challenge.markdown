@@ -68,15 +68,18 @@ $$
 
 The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
-Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. On castle 5 it beats every entry except the 37 others with the identical score, which are the same allocation and tie it. On each other castle it ties with every entry that also sent zero there. With $$z_c = \Pr[X_c = 0]$$ and 6,037 opponents:
+Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
+
+- **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \times (0.9939 + \tfrac{1}{2} \times 0.0061) = 4.985$$ points.
+- **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c$$ for the share of the field sending zero to castle $$c$$.
 
 $$
-5.610 = 5 \left( 1 - \tfrac{1}{2} \cdot \tfrac{37}{6037} \right) + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
+5.610 = 4.985 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
 $$
 
 Five entries give five such equations in five unknowns:
 
-| All 100 on | Score | Identical entries | Share of the field sending zero there |
+| All 100 on | Score | Entries with that score | Share of the field sending zero there |
 |---|---|---|---|
 | Castle 1 | 1.919 | 7 | $$z_1 = 10.9\%$$ |
 | Castle 2 | 2.829 | 7 | $$z_2 = 14.4\%$$ |
