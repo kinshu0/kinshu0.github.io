@@ -5,8 +5,8 @@ date: 2026-11-22 14:00:00 -0500
 permalink: /castle-challenge/
 math: true
 description: "First in both games of the No Limit Castle Challenge, hosted by OpenAI, Citadel Securities and Sequoia, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
-thumb: /assets/castle/four-way-rank-1.png
-image: /assets/castle/four-way-rank-1.png
+thumb: /assets/castle/field-and-mine.png
+image: /assets/castle/field-and-mine.png
 ---
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
@@ -19,8 +19,8 @@ I finished first in both games of the No Limit Castle Challenge, a strategy puzz
 | Four-Way | 3-41-54-1-1 | 1st on 31 of 105, more than any other entry |
 
 <figure>
-<img src="/assets/castle/head-to-head-rank-1.png" alt="Leaderboard card: number 1 in Head to Head, Kinshu Gupta, 9.32" width="1200" height="675">
-<figcaption>The card the site generated for my Head to Head entry on 7 November, the night of the deadline.</figcaption>
+<img src="/assets/castle/field-and-mine.png" alt="For each of the five castles, the distribution of soldiers the field sent, with my entry marked: 4, 5, 36, 48 and 7" width="1200" height="630">
+<figcaption>How many soldiers the field sent to each castle, from the model described below, and my entry.</figcaption>
 </figure>
 
 The leaderboard was recomputed on a 15-minute clock and republished whenever something had changed. The counts cover the 105 versions published in the 45 hours after my entry appeared, on the last update before the Boston deadline.
@@ -329,7 +329,7 @@ The Four-Way model is a different fit from the Head to Head one, because a payou
 
 ## Closing notes
 
-I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named <span class="entry-name">"probe-make-game-unfair"</span> and <span class="entry-name">"no-one-wins-from-unethical-competition"</span>.
+I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named `PROBE-MAKE-GAME-UNFAIR` and `NO-ONE-WINS-FROM-UNETHICAL-COMPETITION`.
 
 <figure>
 <img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia" width="810" height="103">
