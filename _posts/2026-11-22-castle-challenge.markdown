@@ -34,15 +34,6 @@ You have 100 soldiers to split across five castles worth 1, 2, 3, 4 and 5 points
 
 **Four-Way.** Your allocation is dropped into a group with three other entries. Each castle goes to the one entry of the four that sent the most soldiers there. The four are then ranked by castle points, and the rank is what pays: 9 for first, 4 for second, 2 for third, 0 for last, with ties splitting.
 
-Here is one group, with my entry in it:
-
-| Entry | Castles won | Castle points | Place | Payout |
-|---|---|---|---|---|
-| 30-0-0-0-70 | 1 and 5 | 6 | 1st | 9 |
-| 3-41-54-1-1 (mine) | 2 and 3 | 5 | 2nd | 4 |
-| 4-5-36-48-7 | 4 | 4 | 3rd | 2 |
-| 20-20-20-20-20 | none | 0 | 4th | 0 |
-
 The organisers draw 1,000,000 random groups of four from the field, and your score is your average payout, out of 9.
 
 ## Why there is no optimal answer
