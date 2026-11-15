@@ -99,7 +99,7 @@ I had no data on how people play, so I guessed. About 60,000 candidate allocatio
 
 ### Fitting the weights
 
-The weights are adjusted in a loop until the weighted crowd reproduces the evidence. One pass has four steps, and the loop runs 300 passes.
+The link between the hidden allocations and the visible scores is this: the leaderboard is the field playing itself. If the model's crowd is right, then playing it against itself must reproduce the real leaderboard's scores, the measured zero shares, and the score of every probe. The weights are adjusted in a loop until it does. One pass has four steps, and the loop runs 300 passes.
 
 **1. Score the crowd against itself.** The current weights give the crowd's five marginals: for each castle, the share of weight on each number of soldiers. From those come $$F_1, \dots, F_5$$, and with them the score each particle would get against the crowd:
 
@@ -113,9 +113,11 @@ $$
 w_i \leftarrow w_i \left( \frac{h(B_i)}{m(B_i)} \right)^{0.3}
 $$
 
-Where the model has too much weight in a bin the particles in it shrink, and where too little they grow. The exponent 0.3 damps the step so the loop does not overshoot.
+Where the model has too much weight in a bin the particles in it shrink, and where too little they grow. Say 4% of real scores fall between 7.00 and 7.05 but the model has 8% of its weight there. The ratio is 0.5, and $$0.5^{0.3} = 0.81$$, so every particle in that bin loses 19% of its weight.
 
-**3. Match the zero shares.** For each castle $$c$$, let $$q_c$$ be the crowd's current share sending zero there. The particles that send zero are rescaled toward the measured $$z_c$$, and the rest toward $$1 - z_c$$:
+The exponent 0.3 is there because the target moves. Changing the weights changes the marginals, which changes every particle's score in step 1, so particles shift between bins. A full correction would overshoot. A partial one, repeated, settles.
+
+**3. Match the zero shares.** For each castle $$c$$, let $$q_c$$ be the crowd's current share sending zero there. The particles that send zero are rescaled toward the measured $$z_c$$, and the rest toward $$1 - z_c$$, with the same damping:
 
 $$
 w_i \leftarrow
@@ -125,13 +127,17 @@ w_i \left( (1 - z_c) / (1 - q_c) \right)^{0.3} & \text{otherwise}
 \end{cases}
 $$
 
+If the crowd has 6% sending zero to castle 5 and the measured share is 13.9%, the zero-senders are multiplied by $$(13.9 / 6)^{0.3} = 1.29$$ and everyone else by $$(86.1 / 94)^{0.3} = 0.97$$.
+
 **4. Match each probe.** Take a probe with real score $$y$$. Let $$g_i$$ be the score the probe would get against particle $$i$$ alone. The crowd reproduces the probe when the weighted average of $$g$$ equals $$y$$. The weights are tilted until it does:
 
 $$
 w_i \leftarrow \frac{w_i \, e^{\lambda g_i}}{\sum_j w_j \, e^{\lambda g_j}}, \qquad \lambda \text{ chosen so that } \sum_i w_i \, g_i = y
 $$
 
-There is one unknown, $$\lambda$$, found by bisection. This form, an exponential tilt, is the smallest change to the weights that satisfies the constraint.
+Here is why this form works. $$g_i$$ is large for the particles the probe does well against. Suppose the crowd gives the probe 7.8 and its real score is 6.13. Then the crowd has too much weight on particles the probe beats. A negative $$\lambda$$ takes weight away from them, most from the ones it beats most, and the probe's score against the crowd falls. The score moves in one direction as $$\lambda$$ moves, so a bisection search finds the value that lands on $$y$$. Of all the ways to change the weights so that the probe comes out right, this one changes them least.
+
+The four steps disturb each other: fixing a probe shifts the score distribution, and fixing the distribution shifts the probes. That is why it is a loop. It stops changing when all the evidence holds at once.
 
 Every step multiplies the starting weights. A kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
 
@@ -139,13 +145,13 @@ Every step multiplies the starting weights. A kind of entry the prior left out c
 
 The loop can settle on a crowd that is too soft: one against which some simple allocation would score far above anything on the real leaderboard. That cannot be right, because thousands of real entrants tried round-number allocations, and none of them scored that much.
 
-So a second stage tilts the fitted weights once more, along 22 features of each particle: the share of soldiers on each of castles 2 to 5, the largest share on any castle, the two largest together, the number of empty castles, and whether each castle holds at least 15, 30 or 45. With $$f_i$$ the features of particle $$i$$:
+So a second stage tilts the fitted weights once more, along 22 features of each particle: the share of soldiers on each of castles 2 to 5, the largest share on any castle, the two largest together, the number of empty castles, and whether each castle holds at least 15, 30 or 45. The 60,000 weights cannot be adjusted freely again without undoing the fit, so this stage has only 22 knobs, one per feature. With $$f_i$$ the features of particle $$i$$ and $$\theta$$ the knobs:
 
 $$
 w_i(\theta) \propto w_i \, e^{\theta \cdot f_i}
 $$
 
-The parameters $$\theta$$ are chosen to minimise
+A positive knob on "castle 4 holds at least 45", for example, moves weight toward entries that are heavy on castle 4, which makes the crowd harder to beat there. The knobs are chosen to minimise
 
 $$
 L(\theta) = 2 \, D_{\text{scores}} + 2 \, E_{\text{zeros}} + 3 \, E_{\text{probes}} + 2 \, \max(0, \; s_{\text{round}} - s_{\text{leader}} - 0.05) + 0.002 \, \lVert \theta \rVert^2
@@ -157,7 +163,7 @@ $$
 - $$s_{\text{round}}$$ is the best score any allocation in multiples of 5 gets against the model's crowd, and $$s_{\text{leader}}$$ is the real leader's score. The term is zero unless a round-number allocation would beat the real leader by more than 0.05.
 - The last term keeps the tilt small.
 
-$$L$$ has no usable gradient, so it is minimised by Nelder–Mead simplex search.
+Each term is something the crowd should get right, and the multipliers say how much each matters: a probe's score is exact, so it counts most. $$L$$ has no usable gradient, so it is minimised by Nelder–Mead simplex search, which only needs to evaluate $$L$$.
 
 ### Using the fitted field
 
