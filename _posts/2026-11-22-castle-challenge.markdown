@@ -282,15 +282,7 @@ The Four-Way model is a different fit from the Head to Head one, because a payou
 
 ## Closing notes
 
-<p style="background:#fbf0c4;color:#1d1b18;font:14px/1.5 var(--sans);padding:.6em .8em;border-radius:3px"><b>Draft, not yet yours.</b> The points below are candidates drawn from decisions you made during the contest. Rewrite, reorder or replace them in your own words.</p>
-
-**Measurement before modelling.** The model became useful only once it was constrained by my own probes. Probes submitted on the first day would have made most of the early modelling unnecessary.
-
-**The prior was the main source of error.** I began with a prior shaped like casual human play. That assumption does not hold in a field where many entrants are optimising against the same leaderboard. A uniform prior predicted held-out entries three to five times more accurately.
-
-**Held-out accuracy did not identify the optimum.** With the uniform prior the model predicted held-out entries to within 0.11, and its recommendation still ranked 362nd, because the held-out entries were far from the top of the leaderboard. Validation is informative only near the region where the decision is made. The final allocation came from search on the leaderboard itself.
-
-**Working with an agent.** I directed the work. Claude Code, running as an agent, carried out most of the execution: collecting every published version of the leaderboard, fitting the models, and running the submit-and-measure loop overnight. My contribution was deciding what to measure, questioning the model's assumptions, and setting the limits within which the agent operated.
+I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
 <script src="/assets/castle/predictor-data.js"></script>
