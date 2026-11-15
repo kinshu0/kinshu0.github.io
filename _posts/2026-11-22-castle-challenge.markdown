@@ -19,8 +19,8 @@ I finished first in both games of the No Limit Castle Challenge, a strategy puzz
 | Four-Way | 3-41-54-1-1 | 1st on 31 of 105, more than any other entry |
 
 <figure>
-<img src="/assets/castle/field-and-mine.png" alt="For each of the five castles, the distribution of soldiers the field sent, with my entry marked: 4, 5, 36, 48 and 7" width="1200" height="630">
-<figcaption>How many soldiers the field sent to each castle, from the model described below, and my entry.</figcaption>
+<img src="/assets/castle/head-to-head-rank-1.png" alt="Leaderboard card: number 1 in Head to Head, Kinshu Gupta, 9.32" width="1200" height="675">
+<figcaption>The card the site generated for my Head to Head entry on 7 November, the night of the deadline.</figcaption>
 </figure>
 
 The leaderboard was recomputed on a 15-minute clock and republished whenever something had changed. The counts cover the 105 versions published in the 45 hours after my entry appeared, on the last update before the Boston deadline.
