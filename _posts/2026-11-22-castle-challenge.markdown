@@ -129,6 +129,42 @@ A uniform draw assumes nothing about how people play. My first prior did: round-
 
 The link between the hidden allocations and the visible scores is this: the leaderboard is the field playing itself. If the model's crowd is right, then playing it against itself must reproduce the real leaderboard's scores, the measured zero shares, and the score of every probe. The weights are adjusted in a loop until it does. One pass has four steps, and the loop runs 300 passes.
 
+<figure class="loop-fig" style="overflow-x:auto">
+<svg viewBox="0 0 680 232" role="img" aria-label="The four steps of the fitting loop in a row, with an arrow returning from the last step to the first" style="width:100%;min-width:560px;height:auto;font:13px var(--sans)">
+<defs><marker id="loop-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--fg)"/></marker></defs>
+<text x="1" y="18" font-weight="600" font-size="14" fill="var(--fg)">The crowd: 300,000 particles, each with a weight</text>
+<rect x="1" y="36" width="150" height="112" rx="4" fill="none" stroke="var(--dim)" stroke-width="1"/>
+<text x="13" y="60" font-weight="700" font-size="15" fill="var(--acc)">1</text>
+<text x="29" y="60" font-weight="600" font-size="13.5" fill="var(--fg)">Score the crowd</text>
+<text x="29" y="77" font-weight="600" font-size="13.5" fill="var(--fg)">against itself</text>
+<text x="13" y="104" font-size="12" fill="var(--dim)">a score for every</text>
+<text x="13" y="120" font-size="12" fill="var(--dim)">particle</text>
+<rect x="177" y="36" width="150" height="112" rx="4" fill="none" stroke="var(--dim)" stroke-width="1"/>
+<text x="189" y="60" font-weight="700" font-size="15" fill="var(--acc)">2</text>
+<text x="205" y="60" font-weight="600" font-size="13.5" fill="var(--fg)">Match the score</text>
+<text x="205" y="77" font-weight="600" font-size="13.5" fill="var(--fg)">distribution</text>
+<text x="189" y="104" font-size="12" fill="var(--dim)">against the real</text>
+<text x="189" y="120" font-size="12" fill="var(--dim)">leaderboard's scores</text>
+<rect x="353" y="36" width="150" height="112" rx="4" fill="none" stroke="var(--dim)" stroke-width="1"/>
+<text x="365" y="60" font-weight="700" font-size="15" fill="var(--acc)">3</text>
+<text x="381" y="60" font-weight="600" font-size="13.5" fill="var(--fg)">Match the zero</text>
+<text x="381" y="77" font-weight="600" font-size="13.5" fill="var(--fg)">shares</text>
+<text x="365" y="104" font-size="12" fill="var(--dim)">against the five</text>
+<text x="365" y="120" font-size="12" fill="var(--dim)">all-in probes</text>
+<rect x="529" y="36" width="150" height="112" rx="4" fill="none" stroke="var(--dim)" stroke-width="1"/>
+<text x="541" y="60" font-weight="700" font-size="15" fill="var(--acc)">4</text>
+<text x="557" y="60" font-weight="600" font-size="13.5" fill="var(--fg)">Match each</text>
+<text x="557" y="77" font-weight="600" font-size="13.5" fill="var(--fg)">probe</text>
+<text x="541" y="104" font-size="12" fill="var(--dim)">against each probe's</text>
+<text x="541" y="120" font-size="12" fill="var(--dim)">real score</text>
+<path d="M151,92 L175,92" stroke="var(--fg)" stroke-width="1.4" fill="none" marker-end="url(#loop-ah)"/>
+<path d="M327,92 L351,92" stroke="var(--fg)" stroke-width="1.4" fill="none" marker-end="url(#loop-ah)"/>
+<path d="M503,92 L527,92" stroke="var(--fg)" stroke-width="1.4" fill="none" marker-end="url(#loop-ah)"/>
+<path d="M604,148 L604,190 L76,190 L76,150" stroke="var(--fg)" stroke-width="1.4" fill="none" marker-end="url(#loop-ah)"/>
+<text x="340" y="212" text-anchor="middle" font-size="12" fill="var(--dim)">300 passes, until all the evidence holds at once</text>
+</svg>
+</figure>
+
 **1. Score the crowd against itself.** The current weights give the crowd's five marginals: for each castle, the share of weight on each number of soldiers. From those come $$F_1, \dots, F_5$$, and with them a score for every particle. $$s_i$$ is the Head to Head score particle $$i$$ would get if it were entered against this crowd:
 
 $$
