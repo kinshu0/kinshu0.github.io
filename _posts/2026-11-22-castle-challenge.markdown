@@ -9,6 +9,8 @@ thumb: /assets/castle/four-way-rank-1.png
 image: /assets/castle/four-way-rank-1.png
 ---
 
+<link rel="stylesheet" href="/assets/castle/predictor.css">
+
 I finished first in both games of the No Limit Castle Challenge, a strategy puzzle hosted by OpenAI, Citadel Securities and Sequoia in November 2026, with about six thousand entries.
 
 | Game | My allocation | Leaderboards after my entry landed |
@@ -17,8 +19,10 @@ I finished first in both games of the No Limit Castle Challenge, a strategy puzz
 | Four-Way | 3-41-54-1-1 | 1st on 31 of 105, more than any other entry |
 
 <figure>
+<div class="castle-cards">
 <img src="/assets/castle/head-to-head-rank-1.png" alt="Leaderboard card: number 1 in Head to Head, Kinshu Gupta, 9.32" width="1200" height="675">
 <img src="/assets/castle/four-way-rank-1.png" alt="Leaderboard card: number 1 in Four-Way Battle, Kinshu Gupta, 5.92" width="1200" height="675">
+</div>
 <figcaption>The cards the site generated for my entry on 7 November, the night of the deadline.</figcaption>
 </figure>
 
@@ -285,7 +289,7 @@ The Four-Way model is a different fit from the Head to Head one, because a payou
 I was not the only one measuring. About 240 of the 6,038 Head to Head entries on the final leaderboard came from four scripted series, and two early entries were named PROBE-MAKE-GAME-UNFAIR and NO-ONE-WINS-FROM-UNETHICAL-COMPETITION.
 
 <figure>
-<img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, 9.26, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia, 9.26" width="1207" height="103">
+<img src="/assets/castle/leaderboard-probe-names.png" alt="Two leaderboard rows: NO-ONE-WINS-FROM-UNETHICAL-COMPETITION, University of Startup, and PROBE-MAKE-GAME-UNFAIR, University of Sequoia" width="810" height="103">
 <figcaption>Two entries on the Head to Head leaderboard, 5 November. Both were in the top hundred until the organisers removed them.</figcaption>
 </figure>
 
@@ -295,6 +299,5 @@ An entry did not need to deceive to matter, either. Every score is an average ov
 
 This was evening work: after my day job, usually until about midnight, with an occasional steer from my phone during lunch, through Claude Code's Remote Control. I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
 
-<link rel="stylesheet" href="/assets/castle/predictor.css">
 <script src="/assets/castle/predictor-data.js"></script>
 <script src="/assets/castle/predictor.js"></script>
