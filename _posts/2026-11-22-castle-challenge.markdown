@@ -94,12 +94,20 @@ That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still
 To fill that gap I fitted a model of $$P$$.
 
 - **Prior.** I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles, and each starts with equal weight.
-- **Fit.** The weights were adjusted until the weighted crowd reproduced the evidence:
-  - the published distribution of all scores,
-  - the zero shares from the all-in probes,
-  - the exact score of every other probe.
+- **Fit.** The weights are adjusted in a loop until the weighted crowd reproduces the evidence. One pass:
+  1. *Score the crowd against itself.* Compute the crowd's five marginals from the current weights, and with them the score every particle would get against the crowd.
+  2. *Match the score distribution.* Compare the weighted histogram of those scores with the real leaderboard's, in bins 0.05 wide. Where the model has too much weight in a bin, shrink the weights of the particles in it; where too little, grow them.
+  3. *Match the zero shares.* For each castle, rescale the particles that send zero there, and those that do not, so the weighted share sending zero equals the measured $$z_c$$.
+  4. *Match each probe.* A probe with known score $$y$$ must score $$y$$ against the crowd. If $$g_i$$ is what the probe scores against particle $$i$$, multiply each weight by $$e^{\lambda g_i}$$, with $$\lambda$$ chosen so that the weighted average of $$g$$ equals $$y$$.
 
-  Many weightings do that. The fit kept the one closest to the starting weights, a maximum-entropy fit, so wherever the evidence was silent the prior decided.
+  This runs a few hundred times. Every step multiplies the starting weights, so a kind of entry the prior left out can never appear, and wherever the evidence is silent the prior decides.
+- **Cap.** A second stage keeps the field from being too soft. Thousands of real entrants tried round-number allocations, so none of those should score much above the real leader against the model's crowd. The weights are tilted along a few particle features, with parameters $$\theta$$ chosen to minimise
+
+  $$
+  L(\theta) = 2 \, D_{\text{scores}} + 2 \, E_{\text{zeros}} + 3 \, E_{\text{probes}} + 2 \, \max(0, \; s_{\text{round}} - s_{\text{leader}} - 0.05) + 0.002 \, \lVert \theta \rVert^2
+  $$
+
+  where $$D_{\text{scores}}$$ is the largest gap between the model's and the real cumulative score distributions (the Kolmogorov–Smirnov distance), $$E_{\text{zeros}}$$ and $$E_{\text{probes}}$$ are the errors on the zero shares and the probe scores, and $$s_{\text{round}}$$ is the best score any allocation in multiples of 5 gets against the model's crowd.
 - **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Refitting on resampled data gives a range for each prediction.
 
 Before trusting it I tested it on an entry it had not seen: 20 soldiers on every castle. The model predicted 7.8, with a range of 7.7 to 8.5. It scored 6.13.
