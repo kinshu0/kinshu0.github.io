@@ -280,7 +280,17 @@ A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 1
 
 The Four-Way model is a different fit from the Head to Head one, because a payout depends on three opponents at once. It gets its own write-up in part two, which will be linked here once it is published.
 
-I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight.
+## Reflections
+
+<p style="background:#fbf0c4;color:#1d1b18;font:14px/1.5 var(--sans);padding:.6em .8em;border-radius:3px"><b>Draft, not yet yours.</b> The points below are candidates drawn from decisions you made during the contest. Rewrite, reorder or replace them in your own words.</p>
+
+**Measure before modelling.** Nothing worked until the model was fed my own probes. Had I submitted probes on the first day, most of the early modelling would not have been needed.
+
+**The prior was the weak point.** I assumed the field would look like casual human play. A field full of people doing what I was doing does not. The less the model assumed, the better it predicted.
+
+**A good fit is not a good answer.** The model predicted held-out entries well and still recommended an allocation that ranked 362nd, because the entries I tested it on were far from the top. The leaderboard, searched one soldier at a time, settled what the model could not.
+
+**Working with an agent.** I directed the work and Claude Code, running as an agent, did most of the execution: collecting every version of the leaderboard, fitting the model, and running the submit-and-measure loop overnight. My part was choosing what to measure, questioning the assumptions, and setting the limits it ran within.
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
 <script src="/assets/castle/predictor-data.js"></script>
