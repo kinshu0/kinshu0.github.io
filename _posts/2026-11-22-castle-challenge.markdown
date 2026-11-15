@@ -51,21 +51,21 @@ The leaderboard shows scores and hides allocations. But I know the allocation of
 The Head to Head payoff is separable: it is a sum of one term per castle. Let the random variable $$X_c$$ be the number of soldiers an opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
 $$
-S(a) = 1 \cdot W_1(a_1) + 2 \cdot W_2(a_2) + 3 \cdot W_3(a_3) + 4 \cdot W_4(a_4) + 5 \cdot W_5(a_5)
+S(a) = 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
 $$
 
-where $$W_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half. In terms of the marginal on castle $$c$$, with cumulative distribution function $$F_c(x) = \Pr[X_c \le x]$$ and probability mass function $$p_c(x) = \Pr[X_c = x]$$:
+where $$F_c(x)$$ is the share of the field that $$x$$ soldiers beat on castle $$c$$, counting ties as half:
 
 $$
-W_c(x) = F_c(x) - \tfrac{1}{2} \, p_c(x)
+F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
 $$
 
-That is everyone at or below $$x$$, minus half of those exactly at $$x$$, because a tie splits the castle. The score depends on the field only through the five marginals. An entry with soldiers on a single castle reads one value of one $$W_c$$ from its published score.
+$$F_c$$ is close to the cumulative distribution function of the marginal on castle $$c$$. The difference is ties: the CDF, $$\Pr[X_c \le x]$$, counts them in full, and $$F_c$$ counts them as half, because a tie splits the castle. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
 Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
 - **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \cdot (0.9939 + \tfrac{1}{2} \cdot 0.0061) = 4.985$$ points.
-- **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c = p_c(0)$$ for the share of the field sending zero to castle $$c$$.
+- **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c$$ for the share of the field sending zero to castle $$c$$.
 
 $$
 5.610 = 4.985 + \tfrac{1}{2} \left( 1 z_1 + 2 z_2 + 3 z_3 + 4 z_4 \right)
@@ -87,7 +87,7 @@ $$
 z_1 = 10.9\%, \quad z_2 = 14.4\%, \quad z_3 = 12.2\%, \quad z_4 = 12.2\%, \quad z_5 = 13.9\%
 $$
 
-That fixes each marginal at zero: $$F_c(0) = p_c(0) = z_c$$. Everything between 0 and 100 soldiers was still unknown.
+That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still unknown.
 
 ## A model of the field
 
@@ -121,19 +121,19 @@ It still did not find the answer. Its first recommendation put about 61 soldiers
 
 ## Measuring the field directly
 
-Every fit so far was inferring the marginals between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
+Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
-Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$W_1(59) \approx 1$$, and:
+Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
 
-- Castle 1, with 59 soldiers, contributes $$1 \cdot W_1(59) \approx 1$$ point.
-- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$W_c(0) = F_c(0) - \tfrac{1}{2} \, p_c(0) = z_c / 2$$, already measured.
+- Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
+- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured.
 - The rest belongs to castle 4.
 
 $$
-4 \, W_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
+4 \, F_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
 $$
 
-So $$W_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
+So $$F_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
 
 The first six of these showed how far off the fitted field was: 41 soldiers on castle 4 beat 71% of the field, where the model said 87%. About eighty such entries eventually mapped all five castles, and each one also went into the model as a constraint.
 
@@ -150,10 +150,10 @@ Each dot below is one of them. Set an allocation and the page computes its score
 <div id="castle-known" class="castle-known"></div>
 </details>
 
-The constant 0.109 is an error in the probe design, found while writing this up. A probe for $$W_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$W_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - W_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
+The constant 0.109 is an error in the probe design, found while writing this up. A probe for $$F_c(x)$$ parks its other $$100 - x$$ soldiers on castle 1, and I assumed $$F_1(100 - x) = 1$$. A small share of the field sends more than that to castle 1, so each measured value is low by $$\left(1 - F_1(100 - x)\right) / c$$, and for a full allocation the errors add up to
 
 $$
-S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - W_1(100 - a_c) \right)
+S(a) - \hat{S}(a) = \sum_{c=2}^{5} \left( 1 - F_1(100 - a_c) \right)
 $$
 
 which is about 0.03 per castle. It is nearly the same for every allocation near the top, so it did not change which looked best.
