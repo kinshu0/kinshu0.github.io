@@ -4,9 +4,9 @@ title: "1st place in the OpenAI × Citadel Securities × Sequoia Castle Challeng
 date: 2026-11-15 12:00:00 -0500
 permalink: /castle-challenge/
 math: true
-description: "First in both games of the No Limit Castle Challenge, hosted by OpenAI, Citadel Securities and Sequoia, out of about six thousand entries. The method: use the leaderboard to measure the field, one castle at a time."
-thumb: /assets/castle/field-and-mine.png
-image: /assets/castle/field-and-mine.png
+description: "A Colonel Blotto puzzle with about six thousand entries. I used the leaderboard to measure the field, one castle at a time, then searched my way to the top."
+thumb: /assets/castle/first-light-thumb.png
+image: /assets/castle/first-light.png
 ---
 
 <link rel="stylesheet" href="/assets/castle/predictor.css">
