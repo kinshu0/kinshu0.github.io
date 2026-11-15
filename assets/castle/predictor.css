@@ -30,7 +30,11 @@ details > summary { cursor: pointer; font: 15px/1.5 var(--sans); }
   .cp-n { grid-column: 1 / -1; }
 }
 
-/* the two leaderboard cards at the top of the post */
-.castle-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.castle-cards img { display: block; width: 100%; height: auto; margin: 0; border-radius: 3px; }
-@media (max-width: 560px) { .castle-cards { grid-template-columns: 1fr; } }
+/* Wide figures scroll sideways on a phone; say so. */
+@media (max-width: 620px) {
+  .field-fig::after, .loop-fig::after, .search-fig::after {
+    content: "Scroll sideways for the rest \2192";
+    display: block; position: sticky; left: 0;
+    font: 12px var(--sans); color: var(--dim); text-align: right; margin-top: 4px;
+  }
+}
