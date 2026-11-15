@@ -40,13 +40,7 @@ The organisers draw 1,000,000 random groups of four from the field, and your sco
 
 Every allocation loses to some other allocation. Put 48 on castle 4 and someone with 49 takes it from you and spends the difference elsewhere. So there is no best allocation in general, only a best allocation against the entries that were actually submitted.
 
-Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. Stated precisely, the field is an empirical distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it:
-
-$$
-a^{\ast} = \arg\max_{a} \; \mathbb{E}_{b \sim P} \left[ u(a, b) \right]
-$$
-
-where $$u(a, b)$$ is what allocation $$a$$ earns against $$b$$. The difficulty is that $$P$$ is not published. The leaderboard shows one number per entry, its score, and nothing about its allocation. So this is an inference problem: estimate $$P$$, or the parts of it that the score depends on, from what the leaderboard reveals. I first tried to fit $$P$$ as a whole. Then I found that Head to Head depends on $$P$$ only through five one-dimensional distributions, and that those can be measured directly.
+Those entries come from people reasoning about each other. This is usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, a level-1 player picks the best response to level 0, a level-2 player responds to level 1, and so on. Stated precisely, the field is an empirical distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it. The difficulty is that $$P$$ is not published. The leaderboard shows one number per entry, its score, and nothing about its allocation. So this is an inference problem: estimate $$P$$, or the parts of it that the score depends on, from what the leaderboard reveals. I first tried to fit $$P$$ as a whole. Then I found that Head to Head depends on $$P$$ only through five one-dimensional distributions, and that those can be measured directly.
 
 ## Approach 1: a fitted model of the field
 
