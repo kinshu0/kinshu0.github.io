@@ -28,7 +28,7 @@ Two caveats. In Head to Head, first place was shared: with one of my own measure
 
 ## The challenge
 
-You have 100 soldiers to split across five castles worth 1, 2, 3, 4 and 5 points. Everyone submits one allocation for each of two games.
+This is a Colonel Blotto game. You have 100 soldiers to split across five castles worth 1, 2, 3, 4 and 5 points. Everyone submits one allocation for each of two games.
 
 **Head to Head.** Your allocation plays every other entry once. Each castle goes to whoever sent more soldiers, and a tie splits the points. Your score is your average points per opponent, out of 15.
 
@@ -42,7 +42,7 @@ Every allocation loses to some other allocation: put 48 on castle 4 and someone 
 
 Those entries come from people reasoning about each other, usually described as level-k thinking: a level-0 player splits evenly or piles onto the big castles, level 1 best-responds to level 0, level 2 to level 1, and so on.
 
-Formally, the field is an empirical distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it. $$P$$ is not published: the leaderboard shows each entry's score and nothing about its allocation. The problem is to infer $$P$$ from scores. Head to Head depends on $$P$$ only through five one-dimensional distributions, one per castle.
+Formally, the field is an empirical joint distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it. $$P$$ is not published: the leaderboard shows each entry's score and nothing about its allocation. The problem is to infer $$P$$ from scores. Head to Head depends on $$P$$ only through its five marginal distributions, one per castle: how many soldiers the field sends to that castle, ignoring the rest of each entry.
 
 ## Approach 1: a fitted model of the field
 
@@ -50,11 +50,11 @@ My first approach was to fit a model of the field to the published scores: a lar
 
 It was wrong at the top. A calibration entry of 20 soldiers on every castle was predicted to score 7.7 to 8.5 and scored 6.13. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
 
-Many different fields produce the same distribution of scores, and the fit had picked one softer at the top than the real one. This took two days.
+The scores do not identify $$P$$: many different joint distributions produce the same distribution of scores, and the fit had picked one softer at the top than the real one. This took two days.
 
 ## Approach 2: measuring the field
 
-Head to Head scores add up castle by castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
+The Head to Head payoff is separable: it is a sum of one term per castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
 $$
 S(a) = 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
@@ -66,7 +66,7 @@ $$
 F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
 $$
 
-The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
+$$F_c$$ is the cumulative distribution function of the marginal on castle $$c$$, with ties counted as half. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
 Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
@@ -134,7 +134,7 @@ From there I searched on the leaderboard. Head to Head scores are exact, so subm
 
 ## Four-Way
 
-Four-Way does not separate. The payout depends on place in the group, which depends on all five castles and all three opponents, so single-castle entries measure nothing.
+Four-Way is not separable. The payout depends on place in the group, which depends on all five castles and all three opponents, so it depends on the joint distribution (which numbers go together within an entry) and the marginals are not enough. Single-castle entries measure nothing.
 
 I used the same neighbour search on averages. The same entry moves about 0.02 between boards, more than the gap between good neighbours. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997: a plateau, where first place on any one board is a draw.
 
