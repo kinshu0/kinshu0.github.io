@@ -111,6 +111,8 @@ $$
 
 $$F_c$$ is close to the cumulative distribution function of the marginal on castle $$c$$. The difference is ties: the CDF, $$\Pr[X_c \le x]$$, counts them in full, and $$F_c$$ counts them as half, because a tie splits the castle. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
+### All-in entries
+
 Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
 - **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \cdot (0.9939 + \tfrac{1}{2} \cdot 0.0061) = 4.985$$ points.
@@ -136,15 +138,50 @@ $$
 z_1 = 10.9\%, \quad z_2 = 14.4\%, \quad z_3 = 12.2\%, \quad z_4 = 12.2\%, \quad z_5 = 13.9\%
 $$
 
-That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still unknown.
+That fixes each $$F_c$$ at zero.
+
+### Single-castle entries
+
+The rest of each $$F_c$$ comes from a second kind of probe: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
+
+Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
+
+- Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
+- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured.
+- The rest belongs to castle 4.
+
+$$
+4 \, F_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
+$$
+
+So $$F_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
+
+About eighty such entries mapped all five castles.
+
+Each dot below is one of them. Set an allocation and the page computes its score from those measurements alone.
+
+<div id="castle-predictor" class="castle-predictor"></div>
+
+### Checking it
+
+42 other entries on the board had every castle value measured directly. For all 42, the score computed from the probes was below the real score by 0.107 to 0.111. Differences between entries, which decide rank, were right to within 0.004.
+
+<details>
+<summary>All 42 entries</summary>
+<div id="castle-known" class="castle-known"></div>
+</details>
+
+The gap is nearly the same for every entry, so it did not change which allocation looked best. Its cause is an error found after the contest, described at the end.
 
 ## A model of the field
 
-To fill that gap I fitted a model of $$P$$.
+The probes fix each $$F_c$$ at about eighty points. Between those points the field is still unknown. To fill the gaps I fitted a model of $$P$$ that agrees with every probe and with the published scores.
 
 ### The prior
 
-I had no data on how people play, so I guessed. About 60,000 candidate allocations: every split in multiples of 5 and of 10, plus random draws from a few shapes a person might plausibly choose (soldiers in proportion to castle value, an even split, weight on the big castles). These are the particles. Particle $$i$$ has an allocation $$b_i = (b_{i,1}, \dots, b_{i,5})$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
+The model is a crowd of 300,000 particles: allocations drawn uniformly at random from all the possible ones. Particle $$i$$ has an allocation $$b_i = (b_{i,1}, \dots, b_{i,5})$$ and a weight $$w_i$$, its share of the field. The weights sum to 1 and start equal.
+
+A uniform draw assumes nothing about how people play. My first prior did: round-number splits and a few shapes a person might plausibly choose. It predicted badly. An entry of 20 soldiers on every castle was predicted to score 7.8 and scored 6.13. I then compared eight priors on three known entries held out of the fit. The uniform one was off by 0.11, and the seven human-shaped ones by 0.33 to 0.60. The less the prior assumed, the better it predicted.
 
 ### Fitting the weights
 
@@ -156,7 +193,7 @@ $$
 s_i = \sum_{c=1}^{5} c \cdot F_c(b_{i,c})
 $$
 
-where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$. There is one score per particle, 60,000 in all, just as the real leaderboard has one score per entry. Together they are the model's version of the leaderboard.
+where $$b_{i,c}$$ is the number of soldiers particle $$i$$ sends to castle $$c$$. There is one score per particle, 300,000 in all, just as the real leaderboard has one score per entry. Together they are the model's version of the leaderboard.
 
 **2. Match the score distribution.** Sort scores into bins 0.05 wide. Let $$h(B)$$ be the share of real leaderboard scores in bin $$B$$, and $$m(B)$$ the total weight of the particles whose score falls in it. Each particle is rescaled by how far its bin is off:
 
@@ -194,7 +231,7 @@ $$
 \hat{y} = \sum_i w_i \, g_i
 $$
 
-The crowd is right about this probe only if $$\hat{y} = y$$. At first it was not: $$\hat{y} = 7.8$$ against $$y = 6.13$$. A model score that is too high means too much weight on particles with a large $$g_i$$, the ones the probe beats heavily.
+The crowd is right about this probe only if $$\hat{y} = y$$. Under my first prior it was not: $$\hat{y} = 7.8$$ against $$y = 6.13$$. A model score that is too high means too much weight on particles with a large $$g_i$$, the ones the probe beats heavily.
 
 To correct it, every weight is multiplied by a factor that depends on its $$g_i$$, then rescaled so the weights sum to 1:
 
@@ -214,69 +251,9 @@ Every step multiplies the starting weights. A kind of entry the prior left out c
 
 The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate. Repeating the whole fit on resampled leaderboard scores, with a fresh set of particles each time, gives a range for each prediction.
 
-### Testing it
-
-Before trusting it I tested it on an entry it had not seen: 20 soldiers on every castle. The model predicted 7.8, with a range of 7.7 to 8.5. It scored 6.13.
-
-Adding each result as a constraint and refitting did not fix it. The next entries the model chose came in 0.5 to 1.5 below prediction, all in the same direction, and its best allocation changed shape on every refit. The constraints do not identify $$P$$: many different joint distributions reproduce the same scores, and the prior was choosing among them.
-
-## Dropping the human prior
-
-If many entrants were doing what I was doing, a prior shaped like casual human play was the wrong one. So I fitted eight priors in parallel and scored each on three known entries held out of its fit.
-
-| Prior | Error on held-out entries |
-|---|---|
-| 300,000 uniformly random allocations, no human shape | 0.11 |
-| Seven human-shaped variants (round numbers, value-proportional, and others) | 0.33 to 0.60 |
-
-The less human shape the prior imposed, the better it predicted. The uniform prior became the default.
-
-It still did not find the answer. Its first recommendation put about 61 soldiers on castle 5. The entry of that shape that reached the leaderboard scored 9.04 and ranked 362nd. The held-out entries were far from the optimum, so predicting them well said little about the top.
-
-## Measuring the field directly
-
-Every fit so far was inferring $$F_c$$ between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
-
-Assume that few entries send many soldiers to castle 1, so that the share sending 59 or more is negligible. Then $$F_1(59) \approx 1$$, and:
-
-- Castle 1, with 59 soldiers, contributes $$1 \cdot F_1(59) \approx 1$$ point.
-- Castles 2, 3 and 5, with zero soldiers, can only tie, and a tie is worth half: $$F_c(0) = \tfrac{1}{2} \Pr[X_c = 0] = z_c / 2$$, already measured.
-- The rest belongs to castle 4.
-
-$$
-4 \, F_4(41) \approx 4.468 - 1 - \tfrac{1}{2} \left( 2 z_2 + 3 z_3 + 5 z_5 \right) = 4.468 - 1 - 0.676 = 2.792
-$$
-
-So $$F_4(41) \approx 2.792 / 4 = 0.70$$: 41 soldiers on castle 4 beat 70% of the field on that board (71% when first measured).
-
-The first six of these showed how far off the fitted field was: 41 soldiers on castle 4 beat 71% of the field, where the model said 87%. About eighty such entries eventually mapped all five castles, and each one also went into the model as a constraint.
-
-Each dot below is one of them. Set an allocation and the page computes its score from those measurements alone.
-
-<div id="castle-predictor" class="castle-predictor"></div>
-
-### Checking it
-
-42 other entries on the board had every castle value measured directly. For all 42, the score computed from the probes was below the real score by 0.107 to 0.111. Differences between entries, which decide rank, were right to within 0.004.
-
-<details>
-<summary>All 42 entries</summary>
-<div id="castle-known" class="castle-known"></div>
-</details>
-
-The gap is nearly the same for every entry, so it did not change which allocation looked best. Its cause is an error found after the contest, described at the end.
-
 ## Search
 
-By now several fits disagreed about the best allocation. I put the top candidate of each on the leaderboard within an hour of each other.
-
-| Source | Allocation | Score |
-|---|---|---|
-| Uniform prior, refitted with the single-castle probes as constraints | 4-4-36-48-8 | 9.290 |
-| Measured marginals alone, interpolated between probes | 6-7-36-46-5 | 9.216 |
-| Earlier fits, before the single-castle probes | 6-16-6-9-63 | 9.040 |
-
-The model and the measurements together gave the best start: 9.290, rank 30. The model had predicted 9.19 ± 0.03 for it.
+Fitted with every probe, the model put the best allocation at 4-4-36-48-8 and predicted a score of 9.19 ± 0.03. On the leaderboard it scored 9.290 and ranked 30th. Interpolating between the measured points without the model gave a weaker candidate, 6-7-36-46-5, which scored 9.216.
 
 From there I searched on the leaderboard. Head to Head scores are exact, so submitting an entry's neighbours (one soldier moved between two castles) and reading their scores on the next update gives the slope in each direction. Three hours and forty entries later, 4-6-36-47-7 was tied for first with one other entry, which had held that score since the day before. By the evening of the deadline the field had shifted and its neighbour 4-5-36-48-7 had overtaken it; I submitted that one under my name.
 
