@@ -283,6 +283,8 @@ Four-Way is not separable. The payout depends on place in the group, which depen
 
 A rebuilt Four-Way model supplied a starting region, 8-41-51-0-0, which ranked 102nd. From there I used the same neighbour search, on averages. The same entry's score has a standard deviation of about 0.013 from one board to the next, more than the gap between good neighbours. Over 24 boards, 3-41-54-1-1 averaged 6.003 and its two closest neighbours 6.000 and 5.997: a plateau, where first place on any one board is a draw.
 
+The Four-Way model is a different fit from the Head to Head one, because a payout depends on three opponents at once. It gets its own write-up in part two, which will be linked here once it is published.
+
 ## Errors
 
 - **Two days on a human-shaped prior.** Ten single-castle entries on day one would have told me more.
