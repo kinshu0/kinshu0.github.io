@@ -48,7 +48,7 @@ Formally, the field is an empirical joint distribution $$P$$ over the $$\binom{1
 
 The leaderboard shows scores and hides allocations. But I know the allocation of any entry I submit, so each of my own entries is an exact fact about the field: this allocation scores this much. I call an entry submitted for that purpose a probe.
 
-The Head to Head payoff is separable: it is a sum of one term per castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
+The Head to Head payoff is separable: it is a sum of one term per castle. Let the random variable $$X_c$$ be the number of soldiers an opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
 $$
 S(a) = 1 \cdot F_1(a_1) + 2 \cdot F_2(a_2) + 3 \cdot F_3(a_3) + 4 \cdot F_4(a_4) + 5 \cdot F_5(a_5)
