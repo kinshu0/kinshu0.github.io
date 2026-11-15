@@ -44,15 +44,9 @@ Those entries come from people reasoning about each other, usually described as 
 
 Formally, the field is an empirical joint distribution $$P$$ over the $$\binom{104}{4} = 4{,}598{,}126$$ ways to split 100 soldiers across five castles, and the task is to find the allocation with the highest expected score against an opponent drawn from it. $$P$$ is not published: the leaderboard shows each entry's score and nothing about its allocation. The problem is to infer $$P$$ from scores. Head to Head depends on $$P$$ only through its five marginal distributions, one per castle: how many soldiers the field sends to that castle, ignoring the rest of each entry.
 
-## Approach 1: a fitted model of the field
+## Probes
 
-My first approach was to fit a model of the field to the published scores: a large set of candidate allocations, each with a weight, fitted to reproduce the distribution of scores and the exact scores of the few entries whose allocations I knew.
-
-It was wrong at the top. A calibration entry of 20 soldiers on every castle was predicted to score 7.7 to 8.5 and scored 6.13. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
-
-The scores do not identify $$P$$: many different joint distributions produce the same distribution of scores, and the fit had picked one softer at the top than the real one. This took two days.
-
-## Approach 2: measuring the field
+The leaderboard shows scores and hides allocations. But I know the allocation of any entry I submit, so each of my own entries is an exact fact about the field: this allocation scores this much. I call an entry submitted for that purpose a probe.
 
 The Head to Head payoff is separable: it is a sum of one term per castle. Write $$X_c$$ for the number of soldiers a randomly drawn opponent sends to castle $$c$$. The score of an allocation $$a = (a_1, \dots, a_5)$$ is
 
@@ -66,9 +60,9 @@ $$
 F_c(x) = \Pr[X_c < x] + \tfrac{1}{2} \Pr[X_c = x]
 $$
 
-$$F_c$$ is the cumulative distribution function of the marginal on castle $$c$$, with ties counted as half. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
+$$F_c$$ is the cumulative distribution function of the marginal on castle $$c$$. The score depends on the field only through $$F_1, \dots, F_5$$. An entry with soldiers on a single castle reads one value of one $$F_c$$ from its published score.
 
-Start with the five entries that put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
+Five probes each put all 100 soldiers on one castle. On the last leaderboard I saved, the one on castle 5 scored 5.610. Its score has two parts.
 
 - **Castle 5.** It beats every opponent except the 37 other entries that also sent all 100 there, which tie it and split the 5 points. Those 37 are 0.61% of its 6,037 opponents, and they are easy to count: they have the identical score. That gives $$5 \times (0.9939 + \tfrac{1}{2} \times 0.0061) = 4.985$$ points.
 - **Castles 1 to 4.** It sent zero, so it gets half of a castle's points from each opponent that also sent zero there. Write $$z_c$$ for the share of the field sending zero to castle $$c$$.
@@ -93,7 +87,23 @@ $$
 z_1 = 10.9\%, \quad z_2 = 14.4\%, \quad z_3 = 12.2\%, \quad z_4 = 12.2\%, \quad z_5 = 13.9\%
 $$
 
-The other values need one more kind of entry: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
+That fixes each $$F_c$$ at zero. Everything between 0 and 100 soldiers was still unknown.
+
+## A model of the field
+
+To fill that gap I fitted a model of $$P$$.
+
+- **Particles.** Tens of thousands of candidate allocations: every round-number split, plus random draws from a few plausible shapes. Each has a weight, standing for how common that kind of entry is in the field.
+- **Fit.** The weights were adjusted until the weighted crowd reproduced three things: the published distribution of all scores, the zero shares above, and the exact score of every probe. Among weightings that fit equally well, it kept the one closest to the starting weights, which acted as a prior on what people submit.
+- **Use.** The fitted field gives the five marginals. With those, the separable formula scores all 4,598,126 allocations, and the best one is the candidate.
+
+It was wrong at the top. A calibration entry of 20 soldiers on every castle was predicted to score 7.7 to 8.5 and scored 6.13. Three of the first four entries the model chose came in 0.5 to 0.7 below prediction. It said 41 soldiers on castle 4 would beat 87% of the field; the measured figure was 71%.
+
+The constraints do not identify $$P$$: many different joint distributions reproduce the same scores and zero shares, and the prior had picked one softer than the real field in the range that matters, 25 to 60 soldiers on castles 3 to 5. Adding probes as constraints and refitting did not fix it: the model's best allocation changed shape on every refit. This took two days.
+
+## Measuring the field directly
+
+The model was filling in $$F_c$$ between 0 and 100 from indirect evidence. A probe can measure it instead: soldiers on one castle, the rest parked on castle 1. For example, 59-0-0-41-0 scored 4.468.
 
 - Castle 1, with 59 soldiers: I assumed this beats everyone, $$F_1(59) = 1$$, for $$1 \times 1 = 1$$ point. This is the one step that is assumed, not measured, and the check below shows it is slightly off.
 - Castles 2, 3 and 5, with zero soldiers, are ties at zero, already measured: $$F_c(0) = z_c / 2$$.
