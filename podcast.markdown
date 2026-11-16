@@ -3,7 +3,7 @@ layout: page
 title: Protocol Stories
 permalink: /podcast/
 description: A podcast of crypto and prediction-market stories, each checked against the protocols' own data.
-image: /assets/podcast/cover-dark.png
+image: /assets/podcast/share.png
 ---
 <div class="pod-head">
   <picture>

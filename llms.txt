@@ -19,6 +19,10 @@ sitemap: false
 {% for game in site.data.games %}{% if game.listed %}
 - [{{ game.name }}]({{ game.url }}): {{ game.description }}{% endif %}{% endfor %}
 
+## Podcast
+
+- [Protocol Stories]({{ '/podcast/' | absolute_url }}): Stories from crypto and prediction markets, about fifteen minutes each, with claims checked against the primary source. [feed]({{ '/podcast/feed.xml' | absolute_url }})
+
 ## About
 
 - [About and contact]({{ '/about/' | absolute_url }})
