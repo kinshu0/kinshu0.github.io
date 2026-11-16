@@ -111,3 +111,33 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.4em 0; }
   .book .bt { width: auto !important; }
   .entry img { width: 96px; height: 72px; }
 }
+
+/* podcast page */
+.pod-head { display: flex; gap: 1.5em; align-items: flex-start; margin: 1.2em 0 2.6em; }
+.pod-head p { margin: 0 0 .7em; }
+.pod-head picture { flex: none; }
+.pod-cover { width: 200px; height: auto; aspect-ratio: 1; border-radius: 6px; border: 1px solid var(--line); display: block; }
+.pod-follow { font: 600 13px/1 var(--sans); display: flex; flex-wrap: wrap; gap: .6em; margin: 1.1em 0 .8em !important; }
+.pod-follow a { color: var(--bg); background: var(--fg); border-radius: 8px; padding: .8em 1em; text-decoration: none; white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: .55em; }
+.pod-follow a:hover { color: var(--bg); opacity: .85; }
+.pod-follow svg { width: 1.15em; height: 1.15em; flex: none; }
+.pod-other button { font: inherit; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--acc); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.pod-other button:hover { color: var(--acc); }
+.pod-ep { padding: 1.3em 0; border-top: 1px solid var(--line); }
+.pod-ep h2 { margin: 0 0 .2em; font-size: 1.15em; }
+.pod-ep .meta { margin: 0 0 .5em; }
+.pod-desc { margin: 0 0 .9em; font-size: .88em; line-height: 1.5; color: var(--dim); }
+.pod-ep audio { width: 100%; display: block; }
+/* About: link to the podcast page */
+.pod-card { display: flex; gap: 1em; align-items: center; text-decoration: none; margin: 1em 0 0; }
+.pod-card picture { flex: none; }
+.pod-card img { width: 72px; height: auto; aspect-ratio: 1; border-radius: 4px; border: 1px solid var(--line); display: block; }
+.pod-card span { font-size: .9em; line-height: 1.45; color: var(--dim); }
+.pod-card strong { color: var(--fg); text-decoration: underline; text-decoration-color: var(--acc); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.pod-card:hover strong { color: var(--acc); }
+@media (max-width: 560px) {
+  .pod-head { flex-direction: column; gap: 1em; }
+  .pod-cover { width: 140px; }
+  .pod-follow { display: grid; grid-template-columns: 1fr 1fr; font-size: 14px; }
+  .pod-follow a { padding: .95em .6em; }
+}

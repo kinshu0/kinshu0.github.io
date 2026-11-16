@@ -22,6 +22,12 @@ Away from work I boulder, run and ski.
 
 Questions and conversations are welcome. Email me at kinshugupta2002 at gmail.com, or message me on [X (@spacepiratexz)](https://x.com/spacepiratexz). My code is on [GitHub](https://github.com/kinshu0), and here is my [CV](/files/cv.pdf).
 
+## Podcast
+
+<div class="pod-card-wrap">
+<a class="pod-card" href="{{ '/podcast/' | relative_url }}"><picture><source srcset="{{ '/assets/podcast/cover-dark.png' | relative_url }}" media="(prefers-color-scheme: dark)"><img src="{{ '/assets/podcast/cover-light.png' | relative_url }}" alt="" width="72" height="72"></picture><span><strong>Protocol Stories</strong><br>Stories from crypto and prediction markets, checked against the primary source.</span></a>
+</div>
+
 ## Books
 
 <div class="books">
